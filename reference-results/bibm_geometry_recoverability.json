@@ -1,0 +1,4289 @@
+{
+  "source": "BIBM geometry recoverability audit",
+  "model": "DINOv3",
+  "dataset": "BUS-BRA",
+  "feature_source": "frozen DINOv3 condition representations",
+  "target_source": "dilated intervention-mask geometry used by C4",
+  "targets": [
+    "sqrt_normalized_area",
+    "normalized_perimeter",
+    "compactness",
+    "eccentricity",
+    "solidity",
+    "bbox_aspect_ratio",
+    "centroid_x",
+    "centroid_y",
+    "lesion_to_image_area_ratio"
+  ],
+  "manuscript_targets": [
+    "sqrt_normalized_area",
+    "normalized_perimeter",
+    "compactness",
+    "eccentricity",
+    "solidity",
+    "bbox_aspect_ratio",
+    "centroid_x",
+    "centroid_y"
+  ],
+  "core_targets": [
+    "sqrt_normalized_area",
+    "normalized_perimeter",
+    "centroid_x",
+    "centroid_y"
+  ],
+  "core_target_rationale": "Core targets summarize quantities that directly encode mask size/location and the intervention footprint: area, perimeter, centroid x, and centroid y.",
+  "regressor": "Ridge with StandardScaler on features and targets inside the training fold; alpha in 10^-3..10^3 selected by maximizing validation R2 across group-aware inner CV independently for each target/fold",
+  "metrics": "patient-cluster bootstrap R2, Spearman correlation, standardized MAE",
+  "fixed_shape_note": "Fixed-shape edits approximately match dilated-mask area and center before rasterization; those recoverability values are procedural checks.",
+  "conditions": {
+    "C1_full": {
+      "condition": "C1_full",
+      "display_name": "Full image",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.668955643045579,
+            "ci_lower": 0.6350268962284522,
+            "ci_upper": 0.6976104616999557
+          },
+          "spearman": {
+            "value": 0.7999985709507045,
+            "ci_lower": 0.7771173312744577,
+            "ci_upper": 0.8198554004832933
+          },
+          "standardized_mae": {
+            "value": 0.43437166685684264,
+            "ci_lower": 0.4167139522689635,
+            "ci_upper": 0.4564433575199419
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.6169819814176678,
+            "ci_lower": 0.5838041577049091,
+            "ci_upper": 0.6480228347651148
+          },
+          "spearman": {
+            "value": 0.777193747681777,
+            "ci_lower": 0.7520889189233836,
+            "ci_upper": 0.7991070786281025
+          },
+          "standardized_mae": {
+            "value": 0.4663215298711636,
+            "ci_lower": 0.4474766319337147,
+            "ci_upper": 0.4873067147805377
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.3091348757922987,
+            "ci_lower": 0.2693018611338614,
+            "ci_upper": 0.34870697634755465
+          },
+          "spearman": {
+            "value": 0.5502582692574632,
+            "ci_lower": 0.5110080163226566,
+            "ci_upper": 0.587147036179692
+          },
+          "standardized_mae": {
+            "value": 0.66452698743663,
+            "ci_lower": 0.6449090391178426,
+            "ci_upper": 0.6861236672432361
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3441208452134623,
+            "ci_lower": 0.30492502052730197,
+            "ci_upper": 0.383078099832696
+          },
+          "spearman": {
+            "value": 0.6406084448806167,
+            "ci_lower": 0.6092097669712887,
+            "ci_upper": 0.6705515831070529
+          },
+          "standardized_mae": {
+            "value": 0.6017024015291316,
+            "ci_lower": 0.5832113831350368,
+            "ci_upper": 0.6206275551968371
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.3932127850506014,
+            "ci_lower": 0.34834549441718493,
+            "ci_upper": 0.4306943586311273
+          },
+          "spearman": {
+            "value": 0.6222576320410933,
+            "ci_lower": 0.5844789110750441,
+            "ci_upper": 0.6559708859489182
+          },
+          "standardized_mae": {
+            "value": 0.5706418157744103,
+            "ci_lower": 0.5491644665393131,
+            "ci_upper": 0.597126590403688
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.4429072894173731,
+            "ci_lower": 0.4055883367961437,
+            "ci_upper": 0.47758868269584753
+          },
+          "spearman": {
+            "value": 0.6792502267672589,
+            "ci_lower": 0.6483549019936871,
+            "ci_upper": 0.7077041322784938
+          },
+          "standardized_mae": {
+            "value": 0.5702372836494509,
+            "ci_lower": 0.5488505552464836,
+            "ci_upper": 0.5922407201779384
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.18288028802319234,
+            "ci_lower": 0.14801006594839292,
+            "ci_upper": 0.2124653594396793
+          },
+          "spearman": {
+            "value": 0.4196099174468394,
+            "ci_lower": 0.37640567160896027,
+            "ci_upper": 0.46088428296877404
+          },
+          "standardized_mae": {
+            "value": 0.7059175538499985,
+            "ci_lower": 0.6903030224807232,
+            "ci_upper": 0.7249669732926687
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.7005014125813538,
+            "ci_lower": 0.6705014920049973,
+            "ci_upper": 0.7285000965460092
+          },
+          "spearman": {
+            "value": 0.8488340823705833,
+            "ci_lower": 0.8319124137894875,
+            "ci_upper": 0.8637278175859114
+          },
+          "standardized_mae": {
+            "value": 0.4151323787243211,
+            "ci_lower": 0.39638174729746484,
+            "ci_upper": 0.4345965349092828
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.6543820603242031,
+            "ci_lower": 0.6114814336058215,
+            "ci_upper": 0.6912660674568579
+          },
+          "spearman": {
+            "value": 0.769661352636118,
+            "ci_lower": 0.7427135668798318,
+            "ci_upper": 0.792279333571964
+          },
+          "standardized_mae": {
+            "value": 0.40531198572168337,
+            "ci_lower": 0.38517158116405953,
+            "ci_upper": 0.43133888326560643
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.668955643045579,
+            "ci_lower": 0.6350268962284522,
+            "ci_upper": 0.6976104616999557
+          },
+          "spearman": {
+            "value": 0.7999985709507045,
+            "ci_lower": 0.7771173312744577,
+            "ci_upper": 0.8198554004832933
+          },
+          "standardized_mae": {
+            "value": 0.43437166685684264,
+            "ci_lower": 0.4167139522689635,
+            "ci_upper": 0.4564433575199419
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.6169819814176678,
+            "ci_lower": 0.5838041577049091,
+            "ci_upper": 0.6480228347651148
+          },
+          "spearman": {
+            "value": 0.777193747681777,
+            "ci_lower": 0.7520889189233836,
+            "ci_upper": 0.7991070786281025
+          },
+          "standardized_mae": {
+            "value": 0.4663215298711636,
+            "ci_lower": 0.4474766319337147,
+            "ci_upper": 0.4873067147805377
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.18288028802319234,
+            "ci_lower": 0.14801006594839292,
+            "ci_upper": 0.2124653594396793
+          },
+          "spearman": {
+            "value": 0.4196099174468394,
+            "ci_lower": 0.37640567160896027,
+            "ci_upper": 0.46088428296877404
+          },
+          "standardized_mae": {
+            "value": 0.7059175538499985,
+            "ci_lower": 0.6903030224807232,
+            "ci_upper": 0.7249669732926687
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.7005014125813538,
+            "ci_lower": 0.6705014920049973,
+            "ci_upper": 0.7285000965460092
+          },
+          "spearman": {
+            "value": 0.8488340823705833,
+            "ci_lower": 0.8319124137894875,
+            "ci_upper": 0.8637278175859114
+          },
+          "standardized_mae": {
+            "value": 0.4151323787243211,
+            "ci_lower": 0.39638174729746484,
+            "ci_upper": 0.4345965349092828
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.668955643045579,
+            "ci_lower": 0.6350268962284522,
+            "ci_upper": 0.6976104616999557
+          },
+          "spearman": {
+            "value": 0.7999985709507045,
+            "ci_lower": 0.7771173312744577,
+            "ci_upper": 0.8198554004832933
+          },
+          "standardized_mae": {
+            "value": 0.43437166685684264,
+            "ci_lower": 0.4167139522689635,
+            "ci_upper": 0.4564433575199419
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.6169819814176678,
+            "ci_lower": 0.5838041577049091,
+            "ci_upper": 0.6480228347651148
+          },
+          "spearman": {
+            "value": 0.777193747681777,
+            "ci_lower": 0.7520889189233836,
+            "ci_upper": 0.7991070786281025
+          },
+          "standardized_mae": {
+            "value": 0.4663215298711636,
+            "ci_lower": 0.4474766319337147,
+            "ci_upper": 0.4873067147805377
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.3091348757922987,
+            "ci_lower": 0.2693018611338614,
+            "ci_upper": 0.34870697634755465
+          },
+          "spearman": {
+            "value": 0.5502582692574632,
+            "ci_lower": 0.5110080163226566,
+            "ci_upper": 0.587147036179692
+          },
+          "standardized_mae": {
+            "value": 0.66452698743663,
+            "ci_lower": 0.6449090391178426,
+            "ci_upper": 0.6861236672432361
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3441208452134623,
+            "ci_lower": 0.30492502052730197,
+            "ci_upper": 0.383078099832696
+          },
+          "spearman": {
+            "value": 0.6406084448806167,
+            "ci_lower": 0.6092097669712887,
+            "ci_upper": 0.6705515831070529
+          },
+          "standardized_mae": {
+            "value": 0.6017024015291316,
+            "ci_lower": 0.5832113831350368,
+            "ci_upper": 0.6206275551968371
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.3932127850506014,
+            "ci_lower": 0.34834549441718493,
+            "ci_upper": 0.4306943586311273
+          },
+          "spearman": {
+            "value": 0.6222576320410933,
+            "ci_lower": 0.5844789110750441,
+            "ci_upper": 0.6559708859489182
+          },
+          "standardized_mae": {
+            "value": 0.5706418157744103,
+            "ci_lower": 0.5491644665393131,
+            "ci_upper": 0.597126590403688
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.4429072894173731,
+            "ci_lower": 0.4055883367961437,
+            "ci_upper": 0.47758868269584753
+          },
+          "spearman": {
+            "value": 0.6792502267672589,
+            "ci_lower": 0.6483549019936871,
+            "ci_upper": 0.7077041322784938
+          },
+          "standardized_mae": {
+            "value": 0.5702372836494509,
+            "ci_lower": 0.5488505552464836,
+            "ci_upper": 0.5922407201779384
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.18288028802319234,
+            "ci_lower": 0.14801006594839292,
+            "ci_upper": 0.2124653594396793
+          },
+          "spearman": {
+            "value": 0.4196099174468394,
+            "ci_lower": 0.37640567160896027,
+            "ci_upper": 0.46088428296877404
+          },
+          "standardized_mae": {
+            "value": 0.7059175538499985,
+            "ci_lower": 0.6903030224807232,
+            "ci_upper": 0.7249669732926687
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.7005014125813538,
+            "ci_lower": 0.6705014920049973,
+            "ci_upper": 0.7285000965460092
+          },
+          "spearman": {
+            "value": 0.8488340823705833,
+            "ci_lower": 0.8319124137894875,
+            "ci_upper": 0.8637278175859114
+          },
+          "standardized_mae": {
+            "value": 0.4151323787243211,
+            "ci_lower": 0.39638174729746484,
+            "ci_upper": 0.4345965349092828
+          }
+        }
+      },
+      "median_core_spearman": 0.7885961593162407,
+      "median_core_r2": 0.6429688122316234,
+      "median_nonredundant_target_spearman": 0.6599293358239378,
+      "median_nonredundant_target_r2": 0.41806003723398727,
+      "median_all_target_spearman": 0.6792502267672589,
+      "median_all_target_r2": 0.4429072894173731,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 1000.0
+        }
+      ]
+    },
+    "C4_lesion-removed-inpaint": {
+      "condition": "C4_lesion-removed-inpaint",
+      "display_name": "Lesion-removed C4",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9726832016357708,
+            "ci_lower": 0.9691954060232488,
+            "ci_upper": 0.9757598479937578
+          },
+          "spearman": {
+            "value": 0.985003163478233,
+            "ci_lower": 0.9825802037495819,
+            "ci_upper": 0.9867042468919741
+          },
+          "standardized_mae": {
+            "value": 0.1260666800182075,
+            "ci_lower": 0.11928021059482916,
+            "ci_upper": 0.13317189648138134
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9565636218483758,
+            "ci_lower": 0.9513535262516003,
+            "ci_upper": 0.961474263121751
+          },
+          "spearman": {
+            "value": 0.9770983490839749,
+            "ci_lower": 0.9739251847779338,
+            "ci_upper": 0.9794677302206756
+          },
+          "standardized_mae": {
+            "value": 0.1569148292949022,
+            "ci_lower": 0.1485435387474429,
+            "ci_upper": 0.1661223838608425
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.6825736581177984,
+            "ci_lower": 0.6538401838104039,
+            "ci_upper": 0.7073725229555317
+          },
+          "spearman": {
+            "value": 0.8265398647864504,
+            "ci_lower": 0.8079540169371868,
+            "ci_upper": 0.8434425594387289
+          },
+          "standardized_mae": {
+            "value": 0.443364317153997,
+            "ci_lower": 0.42534095583417914,
+            "ci_upper": 0.46289349465886176
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.6842627343322208,
+            "ci_lower": 0.654947040230903,
+            "ci_upper": 0.7116121783825636
+          },
+          "spearman": {
+            "value": 0.873884107743035,
+            "ci_lower": 0.8613967511613465,
+            "ci_upper": 0.8845760906648638
+          },
+          "standardized_mae": {
+            "value": 0.4072915428585063,
+            "ci_lower": 0.3907148492943939,
+            "ci_upper": 0.4256569424876656
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.675800799604271,
+            "ci_lower": 0.6434739091959267,
+            "ci_upper": 0.7035054296840672
+          },
+          "spearman": {
+            "value": 0.8041680228848901,
+            "ci_lower": 0.7813382239289532,
+            "ci_upper": 0.8232914138082381
+          },
+          "standardized_mae": {
+            "value": 0.42750067305076567,
+            "ci_lower": 0.407183009472205,
+            "ci_upper": 0.4508089378873171
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.7482515487481888,
+            "ci_lower": 0.7269518939247533,
+            "ci_upper": 0.7680242786709544
+          },
+          "spearman": {
+            "value": 0.8797816263264756,
+            "ci_lower": 0.8663372362565681,
+            "ci_upper": 0.890775870729602
+          },
+          "standardized_mae": {
+            "value": 0.381392570478294,
+            "ci_lower": 0.3656097705575641,
+            "ci_upper": 0.3985020708909117
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.44206579392533674,
+            "ci_lower": 0.40019703370234927,
+            "ci_upper": 0.4792253114735496
+          },
+          "spearman": {
+            "value": 0.6756699387647825,
+            "ci_lower": 0.6456796728317924,
+            "ci_upper": 0.7029295518832727
+          },
+          "standardized_mae": {
+            "value": 0.5680373179242979,
+            "ci_lower": 0.5488087071007126,
+            "ci_upper": 0.5891311453499525
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.8991523196867648,
+            "ci_lower": 0.8871594582795057,
+            "ci_upper": 0.9094582080124308
+          },
+          "spearman": {
+            "value": 0.9531707135916695,
+            "ci_lower": 0.947386834799956,
+            "ci_upper": 0.9574632793396488
+          },
+          "standardized_mae": {
+            "value": 0.24001916608777868,
+            "ci_lower": 0.2290263076934388,
+            "ci_upper": 0.25089665243386955
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.9712306286902306,
+            "ci_lower": 0.9652120395617794,
+            "ci_upper": 0.9766018568153007
+          },
+          "spearman": {
+            "value": 0.9777440026578496,
+            "ci_lower": 0.9737333664790639,
+            "ci_upper": 0.9808745518119057
+          },
+          "standardized_mae": {
+            "value": 0.11691787395304593,
+            "ci_lower": 0.10869988241731843,
+            "ci_upper": 0.12561931325171627
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9726832016357708,
+            "ci_lower": 0.9691954060232488,
+            "ci_upper": 0.9757598479937578
+          },
+          "spearman": {
+            "value": 0.985003163478233,
+            "ci_lower": 0.9825802037495819,
+            "ci_upper": 0.9867042468919741
+          },
+          "standardized_mae": {
+            "value": 0.1260666800182075,
+            "ci_lower": 0.11928021059482916,
+            "ci_upper": 0.13317189648138134
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9565636218483758,
+            "ci_lower": 0.9513535262516003,
+            "ci_upper": 0.961474263121751
+          },
+          "spearman": {
+            "value": 0.9770983490839749,
+            "ci_lower": 0.9739251847779338,
+            "ci_upper": 0.9794677302206756
+          },
+          "standardized_mae": {
+            "value": 0.1569148292949022,
+            "ci_lower": 0.1485435387474429,
+            "ci_upper": 0.1661223838608425
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.44206579392533674,
+            "ci_lower": 0.40019703370234927,
+            "ci_upper": 0.4792253114735496
+          },
+          "spearman": {
+            "value": 0.6756699387647825,
+            "ci_lower": 0.6456796728317924,
+            "ci_upper": 0.7029295518832727
+          },
+          "standardized_mae": {
+            "value": 0.5680373179242979,
+            "ci_lower": 0.5488087071007126,
+            "ci_upper": 0.5891311453499525
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.8991523196867648,
+            "ci_lower": 0.8871594582795057,
+            "ci_upper": 0.9094582080124308
+          },
+          "spearman": {
+            "value": 0.9531707135916695,
+            "ci_lower": 0.947386834799956,
+            "ci_upper": 0.9574632793396488
+          },
+          "standardized_mae": {
+            "value": 0.24001916608777868,
+            "ci_lower": 0.2290263076934388,
+            "ci_upper": 0.25089665243386955
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9726832016357708,
+            "ci_lower": 0.9691954060232488,
+            "ci_upper": 0.9757598479937578
+          },
+          "spearman": {
+            "value": 0.985003163478233,
+            "ci_lower": 0.9825802037495819,
+            "ci_upper": 0.9867042468919741
+          },
+          "standardized_mae": {
+            "value": 0.1260666800182075,
+            "ci_lower": 0.11928021059482916,
+            "ci_upper": 0.13317189648138134
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9565636218483758,
+            "ci_lower": 0.9513535262516003,
+            "ci_upper": 0.961474263121751
+          },
+          "spearman": {
+            "value": 0.9770983490839749,
+            "ci_lower": 0.9739251847779338,
+            "ci_upper": 0.9794677302206756
+          },
+          "standardized_mae": {
+            "value": 0.1569148292949022,
+            "ci_lower": 0.1485435387474429,
+            "ci_upper": 0.1661223838608425
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.6825736581177984,
+            "ci_lower": 0.6538401838104039,
+            "ci_upper": 0.7073725229555317
+          },
+          "spearman": {
+            "value": 0.8265398647864504,
+            "ci_lower": 0.8079540169371868,
+            "ci_upper": 0.8434425594387289
+          },
+          "standardized_mae": {
+            "value": 0.443364317153997,
+            "ci_lower": 0.42534095583417914,
+            "ci_upper": 0.46289349465886176
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.6842627343322208,
+            "ci_lower": 0.654947040230903,
+            "ci_upper": 0.7116121783825636
+          },
+          "spearman": {
+            "value": 0.873884107743035,
+            "ci_lower": 0.8613967511613465,
+            "ci_upper": 0.8845760906648638
+          },
+          "standardized_mae": {
+            "value": 0.4072915428585063,
+            "ci_lower": 0.3907148492943939,
+            "ci_upper": 0.4256569424876656
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.675800799604271,
+            "ci_lower": 0.6434739091959267,
+            "ci_upper": 0.7035054296840672
+          },
+          "spearman": {
+            "value": 0.8041680228848901,
+            "ci_lower": 0.7813382239289532,
+            "ci_upper": 0.8232914138082381
+          },
+          "standardized_mae": {
+            "value": 0.42750067305076567,
+            "ci_lower": 0.407183009472205,
+            "ci_upper": 0.4508089378873171
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.7482515487481888,
+            "ci_lower": 0.7269518939247533,
+            "ci_upper": 0.7680242786709544
+          },
+          "spearman": {
+            "value": 0.8797816263264756,
+            "ci_lower": 0.8663372362565681,
+            "ci_upper": 0.890775870729602
+          },
+          "standardized_mae": {
+            "value": 0.381392570478294,
+            "ci_lower": 0.3656097705575641,
+            "ci_upper": 0.3985020708909117
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.44206579392533674,
+            "ci_lower": 0.40019703370234927,
+            "ci_upper": 0.4792253114735496
+          },
+          "spearman": {
+            "value": 0.6756699387647825,
+            "ci_lower": 0.6456796728317924,
+            "ci_upper": 0.7029295518832727
+          },
+          "standardized_mae": {
+            "value": 0.5680373179242979,
+            "ci_lower": 0.5488087071007126,
+            "ci_upper": 0.5891311453499525
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.8991523196867648,
+            "ci_lower": 0.8871594582795057,
+            "ci_upper": 0.9094582080124308
+          },
+          "spearman": {
+            "value": 0.9531707135916695,
+            "ci_lower": 0.947386834799956,
+            "ci_upper": 0.9574632793396488
+          },
+          "standardized_mae": {
+            "value": 0.24001916608777868,
+            "ci_lower": 0.2290263076934388,
+            "ci_upper": 0.25089665243386955
+          }
+        }
+      },
+      "median_core_spearman": 0.9651345313378221,
+      "median_core_r2": 0.9278579707675703,
+      "median_nonredundant_target_spearman": 0.8768328670347554,
+      "median_nonredundant_target_r2": 0.7162571415402048,
+      "median_all_target_spearman": 0.8797816263264756,
+      "median_all_target_r2": 0.7482515487481888,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    },
+    "C5d_dilated-mask-only": {
+      "condition": "C5d_dilated-mask-only",
+      "display_name": "Dilated mask-only C5d",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9785184863227565,
+            "ci_lower": 0.9758486983892286,
+            "ci_upper": 0.9810479183263572
+          },
+          "spearman": {
+            "value": 0.9915816963361268,
+            "ci_lower": 0.9902905344788797,
+            "ci_upper": 0.9924614259847029
+          },
+          "standardized_mae": {
+            "value": 0.10383232289911683,
+            "ci_lower": 0.09848974647629716,
+            "ci_upper": 0.10961681174315564
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9772360992040147,
+            "ci_lower": 0.9744962522105864,
+            "ci_upper": 0.9798366947933843
+          },
+          "spearman": {
+            "value": 0.9912444352410836,
+            "ci_lower": 0.9899626628147115,
+            "ci_upper": 0.9921509745136287
+          },
+          "standardized_mae": {
+            "value": 0.1069420653464917,
+            "ci_lower": 0.1015988583092231,
+            "ci_upper": 0.11269297936256296
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.9390800849687705,
+            "ci_lower": 0.9316141866305336,
+            "ci_upper": 0.9455324294341171
+          },
+          "spearman": {
+            "value": 0.9712524256160512,
+            "ci_lower": 0.9669928926326812,
+            "ci_upper": 0.9744923469960829
+          },
+          "standardized_mae": {
+            "value": 0.18286456322317104,
+            "ci_lower": 0.17432271745951136,
+            "ci_upper": 0.19237300279276026
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.7810799584062106,
+            "ci_lower": 0.7565992476772614,
+            "ci_upper": 0.8017762989535377
+          },
+          "spearman": {
+            "value": 0.9320639413088543,
+            "ci_lower": 0.9233906338844425,
+            "ci_upper": 0.9392546646406935
+          },
+          "standardized_mae": {
+            "value": 0.3124827945497527,
+            "ci_lower": 0.2989817890882875,
+            "ci_upper": 0.32795118918303134
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.9231113488077763,
+            "ci_lower": 0.9134666656560876,
+            "ci_upper": 0.932028869477264
+          },
+          "spearman": {
+            "value": 0.9519926276311654,
+            "ci_lower": 0.9442656775265292,
+            "ci_upper": 0.9583649402982023
+          },
+          "standardized_mae": {
+            "value": 0.1910661069074979,
+            "ci_lower": 0.18160873634094646,
+            "ci_upper": 0.20157974542500862
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.9332681647714508,
+            "ci_lower": 0.9253518343114966,
+            "ci_upper": 0.9409776057506486
+          },
+          "spearman": {
+            "value": 0.9688927189362142,
+            "ci_lower": 0.963481088790103,
+            "ci_upper": 0.9731045733741337
+          },
+          "standardized_mae": {
+            "value": 0.18578200353979038,
+            "ci_lower": 0.17660927262475623,
+            "ci_upper": 0.19541801855038718
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9580476797793845,
+            "ci_lower": 0.9514692307375955,
+            "ci_upper": 0.9630036361298602
+          },
+          "spearman": {
+            "value": 0.9778156262444448,
+            "ci_lower": 0.9743767110192364,
+            "ci_upper": 0.9808861074945764
+          },
+          "standardized_mae": {
+            "value": 0.14671411480893573,
+            "ci_lower": 0.13943305041923693,
+            "ci_upper": 0.15510361697174188
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9650869237019889,
+            "ci_lower": 0.9615217070138402,
+            "ci_upper": 0.9682914173089137
+          },
+          "spearman": {
+            "value": 0.9813889030226213,
+            "ci_lower": 0.9785537489527403,
+            "ci_upper": 0.9835416241628561
+          },
+          "standardized_mae": {
+            "value": 0.14612201562838725,
+            "ci_lower": 0.13878837464525176,
+            "ci_upper": 0.15369805775438614
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.9659050843822563,
+            "ci_lower": 0.9601536312177349,
+            "ci_upper": 0.9712090370201618
+          },
+          "spearman": {
+            "value": 0.9859681558664976,
+            "ci_lower": 0.9839535925646467,
+            "ci_upper": 0.987421596561989
+          },
+          "standardized_mae": {
+            "value": 0.11591277132170505,
+            "ci_lower": 0.10901753052868902,
+            "ci_upper": 0.12361108155341805
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9785184863227565,
+            "ci_lower": 0.9758486983892286,
+            "ci_upper": 0.9810479183263572
+          },
+          "spearman": {
+            "value": 0.9915816963361268,
+            "ci_lower": 0.9902905344788797,
+            "ci_upper": 0.9924614259847029
+          },
+          "standardized_mae": {
+            "value": 0.10383232289911683,
+            "ci_lower": 0.09848974647629716,
+            "ci_upper": 0.10961681174315564
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9772360992040147,
+            "ci_lower": 0.9744962522105864,
+            "ci_upper": 0.9798366947933843
+          },
+          "spearman": {
+            "value": 0.9912444352410836,
+            "ci_lower": 0.9899626628147115,
+            "ci_upper": 0.9921509745136287
+          },
+          "standardized_mae": {
+            "value": 0.1069420653464917,
+            "ci_lower": 0.1015988583092231,
+            "ci_upper": 0.11269297936256296
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9580476797793845,
+            "ci_lower": 0.9514692307375955,
+            "ci_upper": 0.9630036361298602
+          },
+          "spearman": {
+            "value": 0.9778156262444448,
+            "ci_lower": 0.9743767110192364,
+            "ci_upper": 0.9808861074945764
+          },
+          "standardized_mae": {
+            "value": 0.14671411480893573,
+            "ci_lower": 0.13943305041923693,
+            "ci_upper": 0.15510361697174188
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9650869237019889,
+            "ci_lower": 0.9615217070138402,
+            "ci_upper": 0.9682914173089137
+          },
+          "spearman": {
+            "value": 0.9813889030226213,
+            "ci_lower": 0.9785537489527403,
+            "ci_upper": 0.9835416241628561
+          },
+          "standardized_mae": {
+            "value": 0.14612201562838725,
+            "ci_lower": 0.13878837464525176,
+            "ci_upper": 0.15369805775438614
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9785184863227565,
+            "ci_lower": 0.9758486983892286,
+            "ci_upper": 0.9810479183263572
+          },
+          "spearman": {
+            "value": 0.9915816963361268,
+            "ci_lower": 0.9902905344788797,
+            "ci_upper": 0.9924614259847029
+          },
+          "standardized_mae": {
+            "value": 0.10383232289911683,
+            "ci_lower": 0.09848974647629716,
+            "ci_upper": 0.10961681174315564
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9772360992040147,
+            "ci_lower": 0.9744962522105864,
+            "ci_upper": 0.9798366947933843
+          },
+          "spearman": {
+            "value": 0.9912444352410836,
+            "ci_lower": 0.9899626628147115,
+            "ci_upper": 0.9921509745136287
+          },
+          "standardized_mae": {
+            "value": 0.1069420653464917,
+            "ci_lower": 0.1015988583092231,
+            "ci_upper": 0.11269297936256296
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.9390800849687705,
+            "ci_lower": 0.9316141866305336,
+            "ci_upper": 0.9455324294341171
+          },
+          "spearman": {
+            "value": 0.9712524256160512,
+            "ci_lower": 0.9669928926326812,
+            "ci_upper": 0.9744923469960829
+          },
+          "standardized_mae": {
+            "value": 0.18286456322317104,
+            "ci_lower": 0.17432271745951136,
+            "ci_upper": 0.19237300279276026
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.7810799584062106,
+            "ci_lower": 0.7565992476772614,
+            "ci_upper": 0.8017762989535377
+          },
+          "spearman": {
+            "value": 0.9320639413088543,
+            "ci_lower": 0.9233906338844425,
+            "ci_upper": 0.9392546646406935
+          },
+          "standardized_mae": {
+            "value": 0.3124827945497527,
+            "ci_lower": 0.2989817890882875,
+            "ci_upper": 0.32795118918303134
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.9231113488077763,
+            "ci_lower": 0.9134666656560876,
+            "ci_upper": 0.932028869477264
+          },
+          "spearman": {
+            "value": 0.9519926276311654,
+            "ci_lower": 0.9442656775265292,
+            "ci_upper": 0.9583649402982023
+          },
+          "standardized_mae": {
+            "value": 0.1910661069074979,
+            "ci_lower": 0.18160873634094646,
+            "ci_upper": 0.20157974542500862
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.9332681647714508,
+            "ci_lower": 0.9253518343114966,
+            "ci_upper": 0.9409776057506486
+          },
+          "spearman": {
+            "value": 0.9688927189362142,
+            "ci_lower": 0.963481088790103,
+            "ci_upper": 0.9731045733741337
+          },
+          "standardized_mae": {
+            "value": 0.18578200353979038,
+            "ci_lower": 0.17660927262475623,
+            "ci_upper": 0.19541801855038718
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9580476797793845,
+            "ci_lower": 0.9514692307375955,
+            "ci_upper": 0.9630036361298602
+          },
+          "spearman": {
+            "value": 0.9778156262444448,
+            "ci_lower": 0.9743767110192364,
+            "ci_upper": 0.9808861074945764
+          },
+          "standardized_mae": {
+            "value": 0.14671411480893573,
+            "ci_lower": 0.13943305041923693,
+            "ci_upper": 0.15510361697174188
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9650869237019889,
+            "ci_lower": 0.9615217070138402,
+            "ci_upper": 0.9682914173089137
+          },
+          "spearman": {
+            "value": 0.9813889030226213,
+            "ci_lower": 0.9785537489527403,
+            "ci_upper": 0.9835416241628561
+          },
+          "standardized_mae": {
+            "value": 0.14612201562838725,
+            "ci_lower": 0.13878837464525176,
+            "ci_upper": 0.15369805775438614
+          }
+        }
+      },
+      "median_core_spearman": 0.9863166691318525,
+      "median_core_r2": 0.9711615114530018,
+      "median_nonredundant_target_spearman": 0.974534025930248,
+      "median_nonredundant_target_r2": 0.9485638823740775,
+      "median_all_target_spearman": 0.9778156262444448,
+      "median_all_target_r2": 0.9580476797793845,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    },
+    "C6d_dilated-geometry-rendering": {
+      "condition": "C6d_dilated-geometry-rendering",
+      "display_name": "Dilated geometry C6d",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9849090669566151,
+            "ci_lower": 0.9830493099668415,
+            "ci_upper": 0.98658861412257
+          },
+          "spearman": {
+            "value": 0.9933825442083681,
+            "ci_lower": 0.9923227672152426,
+            "ci_upper": 0.9940492246357524
+          },
+          "standardized_mae": {
+            "value": 0.09039459700778238,
+            "ci_lower": 0.0856839290587024,
+            "ci_upper": 0.09518394092015911
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9836588250409736,
+            "ci_lower": 0.9812845962448387,
+            "ci_upper": 0.9856466929944946
+          },
+          "spearman": {
+            "value": 0.993604674902663,
+            "ci_lower": 0.9926761524763329,
+            "ci_upper": 0.994202251035678
+          },
+          "standardized_mae": {
+            "value": 0.09179481863209792,
+            "ci_lower": 0.08727541381019711,
+            "ci_upper": 0.09682602987284114
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.9358863846082695,
+            "ci_lower": 0.9271504357498578,
+            "ci_upper": 0.9431698449709081
+          },
+          "spearman": {
+            "value": 0.9706406009288818,
+            "ci_lower": 0.9667617164462239,
+            "ci_upper": 0.9740795985228896
+          },
+          "standardized_mae": {
+            "value": 0.1874240363357303,
+            "ci_lower": 0.17841405151074072,
+            "ci_upper": 0.19713241615982952
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.7811598457222682,
+            "ci_lower": 0.754604286723289,
+            "ci_upper": 0.8055835662243555
+          },
+          "spearman": {
+            "value": 0.9378922087231171,
+            "ci_lower": 0.9295979791546196,
+            "ci_upper": 0.9448390675103713
+          },
+          "standardized_mae": {
+            "value": 0.303803383855519,
+            "ci_lower": 0.2906635091671134,
+            "ci_upper": 0.31848969369114205
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.9091393726547261,
+            "ci_lower": 0.8987663801324678,
+            "ci_upper": 0.9187335211457411
+          },
+          "spearman": {
+            "value": 0.9455421043888652,
+            "ci_lower": 0.9379830360181562,
+            "ci_upper": 0.9522539133315527
+          },
+          "standardized_mae": {
+            "value": 0.21100909014140123,
+            "ci_lower": 0.20018518407710922,
+            "ci_upper": 0.22345624625540592
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.9554603501924966,
+            "ci_lower": 0.9475389827379954,
+            "ci_upper": 0.9623844164312162
+          },
+          "spearman": {
+            "value": 0.9785205887990738,
+            "ci_lower": 0.973002302079982,
+            "ci_upper": 0.9825704839318031
+          },
+          "standardized_mae": {
+            "value": 0.14526582272121746,
+            "ci_lower": 0.1370100504820678,
+            "ci_upper": 0.1539810048423082
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9782231095276872,
+            "ci_lower": 0.97402106240236,
+            "ci_upper": 0.9814934490444434
+          },
+          "spearman": {
+            "value": 0.9892670315141778,
+            "ci_lower": 0.9873679355776582,
+            "ci_upper": 0.9907666074714747
+          },
+          "standardized_mae": {
+            "value": 0.10336840057977603,
+            "ci_lower": 0.0979054837172386,
+            "ci_upper": 0.10937106270398038
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9740869968629281,
+            "ci_lower": 0.970918446365709,
+            "ci_upper": 0.9768730959022821
+          },
+          "spearman": {
+            "value": 0.9856554325491008,
+            "ci_lower": 0.9831545223619395,
+            "ci_upper": 0.9874139981378369
+          },
+          "standardized_mae": {
+            "value": 0.1235828467755877,
+            "ci_lower": 0.11656607615238675,
+            "ci_upper": 0.13125317547695123
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.977526542102141,
+            "ci_lower": 0.9739767450603231,
+            "ci_upper": 0.9806913216399799
+          },
+          "spearman": {
+            "value": 0.989047393009036,
+            "ci_lower": 0.987368529494176,
+            "ci_upper": 0.9903024258450901
+          },
+          "standardized_mae": {
+            "value": 0.09847048384221098,
+            "ci_lower": 0.09232865995168739,
+            "ci_upper": 0.10533166581405942
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9849090669566151,
+            "ci_lower": 0.9830493099668415,
+            "ci_upper": 0.98658861412257
+          },
+          "spearman": {
+            "value": 0.9933825442083681,
+            "ci_lower": 0.9923227672152426,
+            "ci_upper": 0.9940492246357524
+          },
+          "standardized_mae": {
+            "value": 0.09039459700778238,
+            "ci_lower": 0.0856839290587024,
+            "ci_upper": 0.09518394092015911
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9836588250409736,
+            "ci_lower": 0.9812845962448387,
+            "ci_upper": 0.9856466929944946
+          },
+          "spearman": {
+            "value": 0.993604674902663,
+            "ci_lower": 0.9926761524763329,
+            "ci_upper": 0.994202251035678
+          },
+          "standardized_mae": {
+            "value": 0.09179481863209792,
+            "ci_lower": 0.08727541381019711,
+            "ci_upper": 0.09682602987284114
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9782231095276872,
+            "ci_lower": 0.97402106240236,
+            "ci_upper": 0.9814934490444434
+          },
+          "spearman": {
+            "value": 0.9892670315141778,
+            "ci_lower": 0.9873679355776582,
+            "ci_upper": 0.9907666074714747
+          },
+          "standardized_mae": {
+            "value": 0.10336840057977603,
+            "ci_lower": 0.0979054837172386,
+            "ci_upper": 0.10937106270398038
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9740869968629281,
+            "ci_lower": 0.970918446365709,
+            "ci_upper": 0.9768730959022821
+          },
+          "spearman": {
+            "value": 0.9856554325491008,
+            "ci_lower": 0.9831545223619395,
+            "ci_upper": 0.9874139981378369
+          },
+          "standardized_mae": {
+            "value": 0.1235828467755877,
+            "ci_lower": 0.11656607615238675,
+            "ci_upper": 0.13125317547695123
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9849090669566151,
+            "ci_lower": 0.9830493099668415,
+            "ci_upper": 0.98658861412257
+          },
+          "spearman": {
+            "value": 0.9933825442083681,
+            "ci_lower": 0.9923227672152426,
+            "ci_upper": 0.9940492246357524
+          },
+          "standardized_mae": {
+            "value": 0.09039459700778238,
+            "ci_lower": 0.0856839290587024,
+            "ci_upper": 0.09518394092015911
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9836588250409736,
+            "ci_lower": 0.9812845962448387,
+            "ci_upper": 0.9856466929944946
+          },
+          "spearman": {
+            "value": 0.993604674902663,
+            "ci_lower": 0.9926761524763329,
+            "ci_upper": 0.994202251035678
+          },
+          "standardized_mae": {
+            "value": 0.09179481863209792,
+            "ci_lower": 0.08727541381019711,
+            "ci_upper": 0.09682602987284114
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.9358863846082695,
+            "ci_lower": 0.9271504357498578,
+            "ci_upper": 0.9431698449709081
+          },
+          "spearman": {
+            "value": 0.9706406009288818,
+            "ci_lower": 0.9667617164462239,
+            "ci_upper": 0.9740795985228896
+          },
+          "standardized_mae": {
+            "value": 0.1874240363357303,
+            "ci_lower": 0.17841405151074072,
+            "ci_upper": 0.19713241615982952
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.7811598457222682,
+            "ci_lower": 0.754604286723289,
+            "ci_upper": 0.8055835662243555
+          },
+          "spearman": {
+            "value": 0.9378922087231171,
+            "ci_lower": 0.9295979791546196,
+            "ci_upper": 0.9448390675103713
+          },
+          "standardized_mae": {
+            "value": 0.303803383855519,
+            "ci_lower": 0.2906635091671134,
+            "ci_upper": 0.31848969369114205
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.9091393726547261,
+            "ci_lower": 0.8987663801324678,
+            "ci_upper": 0.9187335211457411
+          },
+          "spearman": {
+            "value": 0.9455421043888652,
+            "ci_lower": 0.9379830360181562,
+            "ci_upper": 0.9522539133315527
+          },
+          "standardized_mae": {
+            "value": 0.21100909014140123,
+            "ci_lower": 0.20018518407710922,
+            "ci_upper": 0.22345624625540592
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.9554603501924966,
+            "ci_lower": 0.9475389827379954,
+            "ci_upper": 0.9623844164312162
+          },
+          "spearman": {
+            "value": 0.9785205887990738,
+            "ci_lower": 0.973002302079982,
+            "ci_upper": 0.9825704839318031
+          },
+          "standardized_mae": {
+            "value": 0.14526582272121746,
+            "ci_lower": 0.1370100504820678,
+            "ci_upper": 0.1539810048423082
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.9782231095276872,
+            "ci_lower": 0.97402106240236,
+            "ci_upper": 0.9814934490444434
+          },
+          "spearman": {
+            "value": 0.9892670315141778,
+            "ci_lower": 0.9873679355776582,
+            "ci_upper": 0.9907666074714747
+          },
+          "standardized_mae": {
+            "value": 0.10336840057977603,
+            "ci_lower": 0.0979054837172386,
+            "ci_upper": 0.10937106270398038
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9740869968629281,
+            "ci_lower": 0.970918446365709,
+            "ci_upper": 0.9768730959022821
+          },
+          "spearman": {
+            "value": 0.9856554325491008,
+            "ci_lower": 0.9831545223619395,
+            "ci_upper": 0.9874139981378369
+          },
+          "standardized_mae": {
+            "value": 0.1235828467755877,
+            "ci_lower": 0.11656607615238675,
+            "ci_upper": 0.13125317547695123
+          }
+        }
+      },
+      "median_core_spearman": 0.991324787861273,
+      "median_core_r2": 0.9809409672843303,
+      "median_nonredundant_target_spearman": 0.9820880106740872,
+      "median_nonredundant_target_r2": 0.9647736735277124,
+      "median_all_target_spearman": 0.9856554325491008,
+      "median_all_target_r2": 0.9740869968629281,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 10.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    },
+    "C10_fixed-circle-inpaint": {
+      "condition": "C10_fixed-circle-inpaint",
+      "display_name": "Fixed circle",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9773902610352571,
+            "ci_lower": 0.9740602106358246,
+            "ci_upper": 0.9801559028646344
+          },
+          "spearman": {
+            "value": 0.9874443346614995,
+            "ci_lower": 0.9849955974212203,
+            "ci_upper": 0.9891050406920376
+          },
+          "standardized_mae": {
+            "value": 0.11399234966543398,
+            "ci_lower": 0.10799418076144966,
+            "ci_upper": 0.12085123472501796
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9370295110019655,
+            "ci_lower": 0.9300710654696613,
+            "ci_upper": 0.9435452266298764
+          },
+          "spearman": {
+            "value": 0.9716282664911279,
+            "ci_lower": 0.9680599483309457,
+            "ci_upper": 0.9742057226949742
+          },
+          "standardized_mae": {
+            "value": 0.18780729509330885,
+            "ci_lower": 0.17810075220337118,
+            "ci_upper": 0.19781999772038442
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.3284000566232368,
+            "ci_lower": 0.2861359555631732,
+            "ci_upper": 0.3667760025965266
+          },
+          "spearman": {
+            "value": 0.5843374831893284,
+            "ci_lower": 0.5457830300598887,
+            "ci_upper": 0.619953998018651
+          },
+          "standardized_mae": {
+            "value": 0.6519979192718529,
+            "ci_lower": 0.6327627375375395,
+            "ci_upper": 0.6729662553078405
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3342383567641144,
+            "ci_lower": 0.29820077715316223,
+            "ci_upper": 0.3677669371341586
+          },
+          "spearman": {
+            "value": 0.6362182258398508,
+            "ci_lower": 0.6047759813927189,
+            "ci_upper": 0.6667728437596122
+          },
+          "standardized_mae": {
+            "value": 0.6060952567086226,
+            "ci_lower": 0.5890890599769819,
+            "ci_upper": 0.6250358387943266
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.32884270350906863,
+            "ci_lower": 0.29023627111893036,
+            "ci_upper": 0.3625649544614751
+          },
+          "spearman": {
+            "value": 0.5706683038098127,
+            "ci_lower": 0.5299963307412553,
+            "ci_upper": 0.6062513880134631
+          },
+          "standardized_mae": {
+            "value": 0.6069295654825997,
+            "ci_lower": 0.5857671389816185,
+            "ci_upper": 0.6315257160913309
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.437771881443496,
+            "ci_lower": 0.4009704965383922,
+            "ci_upper": 0.4711883571423763
+          },
+          "spearman": {
+            "value": 0.673122736533492,
+            "ci_lower": 0.6438962281893339,
+            "ci_upper": 0.7002799455647205
+          },
+          "standardized_mae": {
+            "value": 0.5766745263463363,
+            "ci_lower": 0.5575623366021544,
+            "ci_upper": 0.598029662111938
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.574549391185799,
+            "ci_lower": 0.5391165746826845,
+            "ci_upper": 0.6055072620574212
+          },
+          "spearman": {
+            "value": 0.7655243444762122,
+            "ci_lower": 0.741867201223954,
+            "ci_upper": 0.7880324924845776
+          },
+          "standardized_mae": {
+            "value": 0.48538015098790815,
+            "ci_lower": 0.4678937235112416,
+            "ci_upper": 0.504972283235395
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.925277018506677,
+            "ci_lower": 0.9157299487001381,
+            "ci_upper": 0.9336882824701881
+          },
+          "spearman": {
+            "value": 0.9667342500790755,
+            "ci_lower": 0.9625664783371531,
+            "ci_upper": 0.9698558004779848
+          },
+          "standardized_mae": {
+            "value": 0.20477872454994928,
+            "ci_lower": 0.1952189608284737,
+            "ci_upper": 0.21413743000440064
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.9750549150018479,
+            "ci_lower": 0.9695463447951328,
+            "ci_upper": 0.9796945776914417
+          },
+          "spearman": {
+            "value": 0.9817378641174367,
+            "ci_lower": 0.9783277987319635,
+            "ci_upper": 0.9842313710371724
+          },
+          "standardized_mae": {
+            "value": 0.10675016290500625,
+            "ci_lower": 0.09883259062990964,
+            "ci_upper": 0.1150162528809836
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9773902610352571,
+            "ci_lower": 0.9740602106358246,
+            "ci_upper": 0.9801559028646344
+          },
+          "spearman": {
+            "value": 0.9874443346614995,
+            "ci_lower": 0.9849955974212203,
+            "ci_upper": 0.9891050406920376
+          },
+          "standardized_mae": {
+            "value": 0.11399234966543398,
+            "ci_lower": 0.10799418076144966,
+            "ci_upper": 0.12085123472501796
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9370295110019655,
+            "ci_lower": 0.9300710654696613,
+            "ci_upper": 0.9435452266298764
+          },
+          "spearman": {
+            "value": 0.9716282664911279,
+            "ci_lower": 0.9680599483309457,
+            "ci_upper": 0.9742057226949742
+          },
+          "standardized_mae": {
+            "value": 0.18780729509330885,
+            "ci_lower": 0.17810075220337118,
+            "ci_upper": 0.19781999772038442
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.574549391185799,
+            "ci_lower": 0.5391165746826845,
+            "ci_upper": 0.6055072620574212
+          },
+          "spearman": {
+            "value": 0.7655243444762122,
+            "ci_lower": 0.741867201223954,
+            "ci_upper": 0.7880324924845776
+          },
+          "standardized_mae": {
+            "value": 0.48538015098790815,
+            "ci_lower": 0.4678937235112416,
+            "ci_upper": 0.504972283235395
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.925277018506677,
+            "ci_lower": 0.9157299487001381,
+            "ci_upper": 0.9336882824701881
+          },
+          "spearman": {
+            "value": 0.9667342500790755,
+            "ci_lower": 0.9625664783371531,
+            "ci_upper": 0.9698558004779848
+          },
+          "standardized_mae": {
+            "value": 0.20477872454994928,
+            "ci_lower": 0.1952189608284737,
+            "ci_upper": 0.21413743000440064
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9773902610352571,
+            "ci_lower": 0.9740602106358246,
+            "ci_upper": 0.9801559028646344
+          },
+          "spearman": {
+            "value": 0.9874443346614995,
+            "ci_lower": 0.9849955974212203,
+            "ci_upper": 0.9891050406920376
+          },
+          "standardized_mae": {
+            "value": 0.11399234966543398,
+            "ci_lower": 0.10799418076144966,
+            "ci_upper": 0.12085123472501796
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9370295110019655,
+            "ci_lower": 0.9300710654696613,
+            "ci_upper": 0.9435452266298764
+          },
+          "spearman": {
+            "value": 0.9716282664911279,
+            "ci_lower": 0.9680599483309457,
+            "ci_upper": 0.9742057226949742
+          },
+          "standardized_mae": {
+            "value": 0.18780729509330885,
+            "ci_lower": 0.17810075220337118,
+            "ci_upper": 0.19781999772038442
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.3284000566232368,
+            "ci_lower": 0.2861359555631732,
+            "ci_upper": 0.3667760025965266
+          },
+          "spearman": {
+            "value": 0.5843374831893284,
+            "ci_lower": 0.5457830300598887,
+            "ci_upper": 0.619953998018651
+          },
+          "standardized_mae": {
+            "value": 0.6519979192718529,
+            "ci_lower": 0.6327627375375395,
+            "ci_upper": 0.6729662553078405
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3342383567641144,
+            "ci_lower": 0.29820077715316223,
+            "ci_upper": 0.3677669371341586
+          },
+          "spearman": {
+            "value": 0.6362182258398508,
+            "ci_lower": 0.6047759813927189,
+            "ci_upper": 0.6667728437596122
+          },
+          "standardized_mae": {
+            "value": 0.6060952567086226,
+            "ci_lower": 0.5890890599769819,
+            "ci_upper": 0.6250358387943266
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.32884270350906863,
+            "ci_lower": 0.29023627111893036,
+            "ci_upper": 0.3625649544614751
+          },
+          "spearman": {
+            "value": 0.5706683038098127,
+            "ci_lower": 0.5299963307412553,
+            "ci_upper": 0.6062513880134631
+          },
+          "standardized_mae": {
+            "value": 0.6069295654825997,
+            "ci_lower": 0.5857671389816185,
+            "ci_upper": 0.6315257160913309
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.437771881443496,
+            "ci_lower": 0.4009704965383922,
+            "ci_upper": 0.4711883571423763
+          },
+          "spearman": {
+            "value": 0.673122736533492,
+            "ci_lower": 0.6438962281893339,
+            "ci_upper": 0.7002799455647205
+          },
+          "standardized_mae": {
+            "value": 0.5766745263463363,
+            "ci_lower": 0.5575623366021544,
+            "ci_upper": 0.598029662111938
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.574549391185799,
+            "ci_lower": 0.5391165746826845,
+            "ci_upper": 0.6055072620574212
+          },
+          "spearman": {
+            "value": 0.7655243444762122,
+            "ci_lower": 0.741867201223954,
+            "ci_upper": 0.7880324924845776
+          },
+          "standardized_mae": {
+            "value": 0.48538015098790815,
+            "ci_lower": 0.4678937235112416,
+            "ci_upper": 0.504972283235395
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.925277018506677,
+            "ci_lower": 0.9157299487001381,
+            "ci_upper": 0.9336882824701881
+          },
+          "spearman": {
+            "value": 0.9667342500790755,
+            "ci_lower": 0.9625664783371531,
+            "ci_upper": 0.9698558004779848
+          },
+          "standardized_mae": {
+            "value": 0.20477872454994928,
+            "ci_lower": 0.1952189608284737,
+            "ci_upper": 0.21413743000440064
+          }
+        }
+      },
+      "median_core_spearman": 0.9691812582851017,
+      "median_core_r2": 0.9311532647543213,
+      "median_nonredundant_target_spearman": 0.7193235405048521,
+      "median_nonredundant_target_r2": 0.5061606363146475,
+      "median_all_target_spearman": 0.7655243444762122,
+      "median_all_target_r2": 0.574549391185799,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    },
+    "C11_fixed-square-inpaint": {
+      "condition": "C11_fixed-square-inpaint",
+      "display_name": "Fixed square",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9715886859047663,
+            "ci_lower": 0.9678806344422126,
+            "ci_upper": 0.9747097557415374
+          },
+          "spearman": {
+            "value": 0.9834305083820112,
+            "ci_lower": 0.9806700426643078,
+            "ci_upper": 0.9853384657665907
+          },
+          "standardized_mae": {
+            "value": 0.12846177658219135,
+            "ci_lower": 0.12134311002954815,
+            "ci_upper": 0.1362048651594344
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9311746527418263,
+            "ci_lower": 0.9236506126364261,
+            "ci_upper": 0.9381377829348579
+          },
+          "spearman": {
+            "value": 0.9662558735518929,
+            "ci_lower": 0.962015868020196,
+            "ci_upper": 0.969503398901701
+          },
+          "standardized_mae": {
+            "value": 0.1969040770969222,
+            "ci_lower": 0.18711612165111688,
+            "ci_upper": 0.20800556490474
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.2929763141285353,
+            "ci_lower": 0.2515131963271989,
+            "ci_upper": 0.32953916946213
+          },
+          "spearman": {
+            "value": 0.5487827075933035,
+            "ci_lower": 0.5090371501837305,
+            "ci_upper": 0.5846109719627739
+          },
+          "standardized_mae": {
+            "value": 0.6701109116549967,
+            "ci_lower": 0.6501037197598688,
+            "ci_upper": 0.6916586770161159
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3164332160860608,
+            "ci_lower": 0.2747594224014058,
+            "ci_upper": 0.35442915446624074
+          },
+          "spearman": {
+            "value": 0.6004454701640448,
+            "ci_lower": 0.5643386191461192,
+            "ci_upper": 0.6322159138376132
+          },
+          "standardized_mae": {
+            "value": 0.6165620642730995,
+            "ci_lower": 0.5978669426221682,
+            "ci_upper": 0.6374945712397143
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.31741947610629295,
+            "ci_lower": 0.27581777429880683,
+            "ci_upper": 0.35386492976614736
+          },
+          "spearman": {
+            "value": 0.5530927565219844,
+            "ci_lower": 0.5112817468494212,
+            "ci_upper": 0.5894471514017373
+          },
+          "standardized_mae": {
+            "value": 0.6093291152200804,
+            "ci_lower": 0.5878262056462278,
+            "ci_upper": 0.6344605970573735
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.39653607133649227,
+            "ci_lower": 0.3601667172858471,
+            "ci_upper": 0.429758552437306
+          },
+          "spearman": {
+            "value": 0.6437261862074805,
+            "ci_lower": 0.6107752768522738,
+            "ci_upper": 0.6746627834057399
+          },
+          "standardized_mae": {
+            "value": 0.5945646789104801,
+            "ci_lower": 0.5755393641769119,
+            "ci_upper": 0.615082426486436
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.5331481969331138,
+            "ci_lower": 0.49419697833161486,
+            "ci_upper": 0.5692443869035273
+          },
+          "spearman": {
+            "value": 0.7371643911863157,
+            "ci_lower": 0.7112824853563952,
+            "ci_upper": 0.761487196216814
+          },
+          "standardized_mae": {
+            "value": 0.5145833732757306,
+            "ci_lower": 0.49602197093054434,
+            "ci_upper": 0.5340880233297052
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9081200385975625,
+            "ci_lower": 0.8960196706884375,
+            "ci_upper": 0.9183664646490468
+          },
+          "spearman": {
+            "value": 0.9584545773761719,
+            "ci_lower": 0.9533398482467388,
+            "ci_upper": 0.962388459426307
+          },
+          "standardized_mae": {
+            "value": 0.22750692835020192,
+            "ci_lower": 0.21731577450658426,
+            "ci_upper": 0.23808001669927792
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.9695426229961353,
+            "ci_lower": 0.9633084419130346,
+            "ci_upper": 0.9748437408584228
+          },
+          "spearman": {
+            "value": 0.976096998768924,
+            "ci_lower": 0.9720645731753131,
+            "ci_upper": 0.9793189170931579
+          },
+          "standardized_mae": {
+            "value": 0.11933692836603194,
+            "ci_lower": 0.110931039286098,
+            "ci_upper": 0.12855527148938403
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9715886859047663,
+            "ci_lower": 0.9678806344422126,
+            "ci_upper": 0.9747097557415374
+          },
+          "spearman": {
+            "value": 0.9834305083820112,
+            "ci_lower": 0.9806700426643078,
+            "ci_upper": 0.9853384657665907
+          },
+          "standardized_mae": {
+            "value": 0.12846177658219135,
+            "ci_lower": 0.12134311002954815,
+            "ci_upper": 0.1362048651594344
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9311746527418263,
+            "ci_lower": 0.9236506126364261,
+            "ci_upper": 0.9381377829348579
+          },
+          "spearman": {
+            "value": 0.9662558735518929,
+            "ci_lower": 0.962015868020196,
+            "ci_upper": 0.969503398901701
+          },
+          "standardized_mae": {
+            "value": 0.1969040770969222,
+            "ci_lower": 0.18711612165111688,
+            "ci_upper": 0.20800556490474
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.5331481969331138,
+            "ci_lower": 0.49419697833161486,
+            "ci_upper": 0.5692443869035273
+          },
+          "spearman": {
+            "value": 0.7371643911863157,
+            "ci_lower": 0.7112824853563952,
+            "ci_upper": 0.761487196216814
+          },
+          "standardized_mae": {
+            "value": 0.5145833732757306,
+            "ci_lower": 0.49602197093054434,
+            "ci_upper": 0.5340880233297052
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9081200385975625,
+            "ci_lower": 0.8960196706884375,
+            "ci_upper": 0.9183664646490468
+          },
+          "spearman": {
+            "value": 0.9584545773761719,
+            "ci_lower": 0.9533398482467388,
+            "ci_upper": 0.962388459426307
+          },
+          "standardized_mae": {
+            "value": 0.22750692835020192,
+            "ci_lower": 0.21731577450658426,
+            "ci_upper": 0.23808001669927792
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9715886859047663,
+            "ci_lower": 0.9678806344422126,
+            "ci_upper": 0.9747097557415374
+          },
+          "spearman": {
+            "value": 0.9834305083820112,
+            "ci_lower": 0.9806700426643078,
+            "ci_upper": 0.9853384657665907
+          },
+          "standardized_mae": {
+            "value": 0.12846177658219135,
+            "ci_lower": 0.12134311002954815,
+            "ci_upper": 0.1362048651594344
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9311746527418263,
+            "ci_lower": 0.9236506126364261,
+            "ci_upper": 0.9381377829348579
+          },
+          "spearman": {
+            "value": 0.9662558735518929,
+            "ci_lower": 0.962015868020196,
+            "ci_upper": 0.969503398901701
+          },
+          "standardized_mae": {
+            "value": 0.1969040770969222,
+            "ci_lower": 0.18711612165111688,
+            "ci_upper": 0.20800556490474
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.2929763141285353,
+            "ci_lower": 0.2515131963271989,
+            "ci_upper": 0.32953916946213
+          },
+          "spearman": {
+            "value": 0.5487827075933035,
+            "ci_lower": 0.5090371501837305,
+            "ci_upper": 0.5846109719627739
+          },
+          "standardized_mae": {
+            "value": 0.6701109116549967,
+            "ci_lower": 0.6501037197598688,
+            "ci_upper": 0.6916586770161159
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.3164332160860608,
+            "ci_lower": 0.2747594224014058,
+            "ci_upper": 0.35442915446624074
+          },
+          "spearman": {
+            "value": 0.6004454701640448,
+            "ci_lower": 0.5643386191461192,
+            "ci_upper": 0.6322159138376132
+          },
+          "standardized_mae": {
+            "value": 0.6165620642730995,
+            "ci_lower": 0.5978669426221682,
+            "ci_upper": 0.6374945712397143
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.31741947610629295,
+            "ci_lower": 0.27581777429880683,
+            "ci_upper": 0.35386492976614736
+          },
+          "spearman": {
+            "value": 0.5530927565219844,
+            "ci_lower": 0.5112817468494212,
+            "ci_upper": 0.5894471514017373
+          },
+          "standardized_mae": {
+            "value": 0.6093291152200804,
+            "ci_lower": 0.5878262056462278,
+            "ci_upper": 0.6344605970573735
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.39653607133649227,
+            "ci_lower": 0.3601667172858471,
+            "ci_upper": 0.429758552437306
+          },
+          "spearman": {
+            "value": 0.6437261862074805,
+            "ci_lower": 0.6107752768522738,
+            "ci_upper": 0.6746627834057399
+          },
+          "standardized_mae": {
+            "value": 0.5945646789104801,
+            "ci_lower": 0.5755393641769119,
+            "ci_upper": 0.615082426486436
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.5331481969331138,
+            "ci_lower": 0.49419697833161486,
+            "ci_upper": 0.5692443869035273
+          },
+          "spearman": {
+            "value": 0.7371643911863157,
+            "ci_lower": 0.7112824853563952,
+            "ci_upper": 0.761487196216814
+          },
+          "standardized_mae": {
+            "value": 0.5145833732757306,
+            "ci_lower": 0.49602197093054434,
+            "ci_upper": 0.5340880233297052
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9081200385975625,
+            "ci_lower": 0.8960196706884375,
+            "ci_upper": 0.9183664646490468
+          },
+          "spearman": {
+            "value": 0.9584545773761719,
+            "ci_lower": 0.9533398482467388,
+            "ci_upper": 0.962388459426307
+          },
+          "standardized_mae": {
+            "value": 0.22750692835020192,
+            "ci_lower": 0.21731577450658426,
+            "ci_upper": 0.23808001669927792
+          }
+        }
+      },
+      "median_core_spearman": 0.9623552254640324,
+      "median_core_r2": 0.9196473456696944,
+      "median_nonredundant_target_spearman": 0.6904452886968981,
+      "median_nonredundant_target_r2": 0.464842134134803,
+      "median_all_target_spearman": 0.7371643911863157,
+      "median_all_target_r2": 0.5331481969331138,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    },
+    "C12_fixed-ellipse-inpaint": {
+      "condition": "C12_fixed-ellipse-inpaint",
+      "display_name": "Fixed ellipse",
+      "n_images": 1875,
+      "n_patients": 1064,
+      "targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9736032470113979,
+            "ci_lower": 0.9700062592349277,
+            "ci_upper": 0.9764837516354754
+          },
+          "spearman": {
+            "value": 0.9856791893558584,
+            "ci_lower": 0.983294678929726,
+            "ci_upper": 0.9873806236420035
+          },
+          "standardized_mae": {
+            "value": 0.12377419571302133,
+            "ci_lower": 0.11744716495208839,
+            "ci_upper": 0.1311422513574332
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9358314072929743,
+            "ci_lower": 0.928246371888153,
+            "ci_upper": 0.9423108810433435
+          },
+          "spearman": {
+            "value": 0.9703834212077285,
+            "ci_lower": 0.9666207830151647,
+            "ci_upper": 0.972997422268742
+          },
+          "standardized_mae": {
+            "value": 0.18893838946095246,
+            "ci_lower": 0.17997015826780333,
+            "ci_upper": 0.1999840662688855
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.293569511874051,
+            "ci_lower": 0.25135699611449774,
+            "ci_upper": 0.33128655769195825
+          },
+          "spearman": {
+            "value": 0.546057858292013,
+            "ci_lower": 0.5063696739882955,
+            "ci_upper": 0.5840648309250781
+          },
+          "standardized_mae": {
+            "value": 0.6707169879248556,
+            "ci_lower": 0.6509260524479836,
+            "ci_upper": 0.6916111435723643
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.36930598658278246,
+            "ci_lower": 0.3339918515006279,
+            "ci_upper": 0.4001322303543845
+          },
+          "spearman": {
+            "value": 0.6589403657087062,
+            "ci_lower": 0.6306862453703621,
+            "ci_upper": 0.6853308488550695
+          },
+          "standardized_mae": {
+            "value": 0.5890848866519359,
+            "ci_lower": 0.5721259314325845,
+            "ci_upper": 0.6086326421022654
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.31536414816546776,
+            "ci_lower": 0.2729507868922371,
+            "ci_upper": 0.3527805356876031
+          },
+          "spearman": {
+            "value": 0.5375181612311297,
+            "ci_lower": 0.4953287496819375,
+            "ci_upper": 0.5747425121961366
+          },
+          "standardized_mae": {
+            "value": 0.6169496213719488,
+            "ci_lower": 0.5958501385031584,
+            "ci_upper": 0.6424804303377348
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.5114903874078354,
+            "ci_lower": 0.47646728525483695,
+            "ci_upper": 0.5440328794832002
+          },
+          "spearman": {
+            "value": 0.7356309611960743,
+            "ci_lower": 0.7095373112723115,
+            "ci_upper": 0.757820277322885
+          },
+          "standardized_mae": {
+            "value": 0.5358485435015509,
+            "ci_lower": 0.5146694689216195,
+            "ci_upper": 0.5572538635055704
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.509256762489267,
+            "ci_lower": 0.4703739274135358,
+            "ci_upper": 0.5423363189635245
+          },
+          "spearman": {
+            "value": 0.7187607970448538,
+            "ci_lower": 0.6913070305387095,
+            "ci_upper": 0.7440950812373738
+          },
+          "standardized_mae": {
+            "value": 0.5319451297731206,
+            "ci_lower": 0.5140633106821584,
+            "ci_upper": 0.5513737413660308
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9075150758572234,
+            "ci_lower": 0.8953663459885663,
+            "ci_upper": 0.9174615147359448
+          },
+          "spearman": {
+            "value": 0.958020320716891,
+            "ci_lower": 0.9530592736401419,
+            "ci_upper": 0.9619327238627929
+          },
+          "standardized_mae": {
+            "value": 0.22807935165441848,
+            "ci_lower": 0.21749768966209163,
+            "ci_upper": 0.2389281686039683
+          }
+        },
+        "lesion_to_image_area_ratio": {
+          "r2": {
+            "value": 0.9707485564193922,
+            "ci_lower": 0.9651756911264243,
+            "ci_upper": 0.9753676897664
+          },
+          "spearman": {
+            "value": 0.9777549362502927,
+            "ci_lower": 0.973500721329068,
+            "ci_upper": 0.980855975594451
+          },
+          "standardized_mae": {
+            "value": 0.1166772634077119,
+            "ci_lower": 0.1092554040183065,
+            "ci_upper": 0.12556490232809592
+          }
+        }
+      },
+      "core_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9736032470113979,
+            "ci_lower": 0.9700062592349277,
+            "ci_upper": 0.9764837516354754
+          },
+          "spearman": {
+            "value": 0.9856791893558584,
+            "ci_lower": 0.983294678929726,
+            "ci_upper": 0.9873806236420035
+          },
+          "standardized_mae": {
+            "value": 0.12377419571302133,
+            "ci_lower": 0.11744716495208839,
+            "ci_upper": 0.1311422513574332
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9358314072929743,
+            "ci_lower": 0.928246371888153,
+            "ci_upper": 0.9423108810433435
+          },
+          "spearman": {
+            "value": 0.9703834212077285,
+            "ci_lower": 0.9666207830151647,
+            "ci_upper": 0.972997422268742
+          },
+          "standardized_mae": {
+            "value": 0.18893838946095246,
+            "ci_lower": 0.17997015826780333,
+            "ci_upper": 0.1999840662688855
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.509256762489267,
+            "ci_lower": 0.4703739274135358,
+            "ci_upper": 0.5423363189635245
+          },
+          "spearman": {
+            "value": 0.7187607970448538,
+            "ci_lower": 0.6913070305387095,
+            "ci_upper": 0.7440950812373738
+          },
+          "standardized_mae": {
+            "value": 0.5319451297731206,
+            "ci_lower": 0.5140633106821584,
+            "ci_upper": 0.5513737413660308
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9075150758572234,
+            "ci_lower": 0.8953663459885663,
+            "ci_upper": 0.9174615147359448
+          },
+          "spearman": {
+            "value": 0.958020320716891,
+            "ci_lower": 0.9530592736401419,
+            "ci_upper": 0.9619327238627929
+          },
+          "standardized_mae": {
+            "value": 0.22807935165441848,
+            "ci_lower": 0.21749768966209163,
+            "ci_upper": 0.2389281686039683
+          }
+        }
+      },
+      "manuscript_targets": {
+        "sqrt_normalized_area": {
+          "r2": {
+            "value": 0.9736032470113979,
+            "ci_lower": 0.9700062592349277,
+            "ci_upper": 0.9764837516354754
+          },
+          "spearman": {
+            "value": 0.9856791893558584,
+            "ci_lower": 0.983294678929726,
+            "ci_upper": 0.9873806236420035
+          },
+          "standardized_mae": {
+            "value": 0.12377419571302133,
+            "ci_lower": 0.11744716495208839,
+            "ci_upper": 0.1311422513574332
+          }
+        },
+        "normalized_perimeter": {
+          "r2": {
+            "value": 0.9358314072929743,
+            "ci_lower": 0.928246371888153,
+            "ci_upper": 0.9423108810433435
+          },
+          "spearman": {
+            "value": 0.9703834212077285,
+            "ci_lower": 0.9666207830151647,
+            "ci_upper": 0.972997422268742
+          },
+          "standardized_mae": {
+            "value": 0.18893838946095246,
+            "ci_lower": 0.17997015826780333,
+            "ci_upper": 0.1999840662688855
+          }
+        },
+        "compactness": {
+          "r2": {
+            "value": 0.293569511874051,
+            "ci_lower": 0.25135699611449774,
+            "ci_upper": 0.33128655769195825
+          },
+          "spearman": {
+            "value": 0.546057858292013,
+            "ci_lower": 0.5063696739882955,
+            "ci_upper": 0.5840648309250781
+          },
+          "standardized_mae": {
+            "value": 0.6707169879248556,
+            "ci_lower": 0.6509260524479836,
+            "ci_upper": 0.6916111435723643
+          }
+        },
+        "eccentricity": {
+          "r2": {
+            "value": 0.36930598658278246,
+            "ci_lower": 0.3339918515006279,
+            "ci_upper": 0.4001322303543845
+          },
+          "spearman": {
+            "value": 0.6589403657087062,
+            "ci_lower": 0.6306862453703621,
+            "ci_upper": 0.6853308488550695
+          },
+          "standardized_mae": {
+            "value": 0.5890848866519359,
+            "ci_lower": 0.5721259314325845,
+            "ci_upper": 0.6086326421022654
+          }
+        },
+        "solidity": {
+          "r2": {
+            "value": 0.31536414816546776,
+            "ci_lower": 0.2729507868922371,
+            "ci_upper": 0.3527805356876031
+          },
+          "spearman": {
+            "value": 0.5375181612311297,
+            "ci_lower": 0.4953287496819375,
+            "ci_upper": 0.5747425121961366
+          },
+          "standardized_mae": {
+            "value": 0.6169496213719488,
+            "ci_lower": 0.5958501385031584,
+            "ci_upper": 0.6424804303377348
+          }
+        },
+        "bbox_aspect_ratio": {
+          "r2": {
+            "value": 0.5114903874078354,
+            "ci_lower": 0.47646728525483695,
+            "ci_upper": 0.5440328794832002
+          },
+          "spearman": {
+            "value": 0.7356309611960743,
+            "ci_lower": 0.7095373112723115,
+            "ci_upper": 0.757820277322885
+          },
+          "standardized_mae": {
+            "value": 0.5358485435015509,
+            "ci_lower": 0.5146694689216195,
+            "ci_upper": 0.5572538635055704
+          }
+        },
+        "centroid_x": {
+          "r2": {
+            "value": 0.509256762489267,
+            "ci_lower": 0.4703739274135358,
+            "ci_upper": 0.5423363189635245
+          },
+          "spearman": {
+            "value": 0.7187607970448538,
+            "ci_lower": 0.6913070305387095,
+            "ci_upper": 0.7440950812373738
+          },
+          "standardized_mae": {
+            "value": 0.5319451297731206,
+            "ci_lower": 0.5140633106821584,
+            "ci_upper": 0.5513737413660308
+          }
+        },
+        "centroid_y": {
+          "r2": {
+            "value": 0.9075150758572234,
+            "ci_lower": 0.8953663459885663,
+            "ci_upper": 0.9174615147359448
+          },
+          "spearman": {
+            "value": 0.958020320716891,
+            "ci_lower": 0.9530592736401419,
+            "ci_upper": 0.9619327238627929
+          },
+          "standardized_mae": {
+            "value": 0.22807935165441848,
+            "ci_lower": 0.21749768966209163,
+            "ci_upper": 0.2389281686039683
+          }
+        }
+      },
+      "median_core_spearman": 0.9642018709623097,
+      "median_core_r2": 0.9216732415750988,
+      "median_nonredundant_target_spearman": 0.727195879120464,
+      "median_nonredundant_target_r2": 0.5103735749485512,
+      "median_all_target_spearman": 0.7356309611960743,
+      "median_all_target_r2": 0.5114903874078354,
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "sqrt_normalized_area",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "normalized_perimeter",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "compactness",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "eccentricity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 2,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 3,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 4,
+          "target": "solidity",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 0,
+          "target": "bbox_aspect_ratio",
+          "alpha": 1000.0
+        },
+        {
+          "fold": 1,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "bbox_aspect_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_x",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "centroid_y",
+          "alpha": 100.0
+        },
+        {
+          "fold": 0,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 1,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 2,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 3,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        },
+        {
+          "fold": 4,
+          "target": "lesion_to_image_area_ratio",
+          "alpha": 100.0
+        }
+      ]
+    }
+  },
+  "c4_vs_full_delta_spearman": {
+    "sqrt_normalized_area": {
+      "convention": "C4_minus_Full",
+      "delta_spearman": 0.18500459252752854,
+      "ci_lower": 0.16473701686086653,
+      "ci_upper": 0.20663240482697037,
+      "n_images": 1875,
+      "n_patients": 1064
+    },
+    "normalized_perimeter": {
+      "convention": "C4_minus_Full",
+      "delta_spearman": 0.1999046014021979,
+      "ci_lower": 0.1787340699505785,
+      "ci_upper": 0.22307809342603302,
+      "n_images": 1875,
+      "n_patients": 1064
+    },
+    "centroid_x": {
+      "convention": "C4_minus_Full",
+      "delta_spearman": 0.25606002131794314,
+      "ci_lower": 0.22091817156123358,
+      "ci_upper": 0.29152960462597155,
+      "n_images": 1875,
+      "n_patients": 1064
+    },
+    "centroid_y": {
+      "convention": "C4_minus_Full",
+      "delta_spearman": 0.10433663122108616,
+      "ci_lower": 0.09103506063325252,
+      "ci_upper": 0.11938254628976579,
+      "n_images": 1875,
+      "n_patients": 1064
+    }
+  },
+  "claim_gate": "C4 representations recover multiple core dilated-mask geometry features; the manuscript may state that geometry information is recoverable from C4 representations while preserving source-ambiguity wording."
+}

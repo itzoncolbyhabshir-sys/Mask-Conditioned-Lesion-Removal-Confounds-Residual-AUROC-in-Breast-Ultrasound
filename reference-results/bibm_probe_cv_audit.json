@@ -1,0 +1,430 @@
+{
+  "source": "BIBM final closure inner-CV leakage audit",
+  "protocol": "group3_then_group2_then_fixed_C_no_image_level_fallback",
+  "datasets": {
+    "BUS-BRA": {
+      "dataset": "BUS-BRA",
+      "n_outer_seed_partitions": 25,
+      "mode_counts": {
+        "group3": 25,
+        "group2": 0,
+        "fixed_C": 0,
+        "image_level_inner_cv": 0
+      },
+      "partitions": [
+        {
+          "dataset": "BUS-BRA",
+          "fold": 0,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 0,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 0,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 0,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 0,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 1,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 1,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 1,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 1,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 1,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 2,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 2,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 2,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 2,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 2,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 3,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 3,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 3,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 3,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 3,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 851
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 4,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 852
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 4,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 852
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 4,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 852
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 4,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 852
+        },
+        {
+          "dataset": "BUS-BRA",
+          "fold": 4,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 1500,
+          "n_train_patients": 852
+        }
+      ]
+    },
+    "BUS-UCLM": {
+      "dataset": "BUS-UCLM",
+      "n_outer_seed_partitions": 25,
+      "mode_counts": {
+        "group3": 25,
+        "group2": 0,
+        "fixed_C": 0,
+        "image_level_inner_cv": 0
+      },
+      "partitions": [
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 0,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 0,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 0,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 0,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 0,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 1,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 208,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 1,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 208,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 1,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 208,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 1,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 208,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 1,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 208,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 2,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 2,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 2,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 2,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 2,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 195,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 3,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 213,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 3,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 213,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 3,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 213,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 3,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 213,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 3,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 213,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 4,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "n_train_images": 229,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 4,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "n_train_images": 229,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 4,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "n_train_images": 229,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 4,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "n_train_images": 229,
+          "n_train_patients": 28
+        },
+        {
+          "dataset": "BUS-UCLM",
+          "fold": 4,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "n_train_images": 229,
+          "n_train_patients": 28
+        }
+      ]
+    }
+  }
+}

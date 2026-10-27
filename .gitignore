@@ -1,0 +1,48 @@
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp/
+.omx/
+.codex/
+.agents/
+.idea/
+.vscode/
+tmp/
+output/
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*credentials*.json
+kaggle.json
+*.pem
+*.key
+# Regenerated research artifacts
+data/*
+!data/bus_uclm_images_files.json
+!data/bus_uclm_masks_files.json
+models/
+images/
+features/
+predictions/
+results/
+logs/
+manifest.csv
+splits.csv
+condition_paths.csv
+*.before-reference-splits
+environment.freeze.txt
+environment.torch.txt
+*.pt
+*.pth
+*.safetensors
+*.npy
+*.npz
+*.zip
+*.log
+# Preserve published reference summaries and portable split metadata
+!reference-results/
+!reproducibility/

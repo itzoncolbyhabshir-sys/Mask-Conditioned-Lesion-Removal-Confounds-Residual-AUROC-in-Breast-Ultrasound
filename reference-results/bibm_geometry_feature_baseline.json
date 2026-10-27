@@ -1,0 +1,371 @@
+{
+  "source": "mask geometry logistic-probe baseline for BIBM final closure",
+  "mask_source": "original lesion mask, not the C4 dilated intervention mask",
+  "normalization": "area is normalized by image area, perimeter by sqrt(image area), and centroid coordinates by image width/height; standardization is fitted inside each training fold",
+  "datasets": {
+    "BUS-BRA": {
+      "dataset": "BUS-BRA",
+      "model": "interpretable_mask_geometry_logistic_probe",
+      "feature_names": [
+        "sqrt_normalized_area",
+        "normalized_perimeter",
+        "compactness",
+        "eccentricity",
+        "solidity",
+        "bbox_aspect_ratio",
+        "centroid_x",
+        "centroid_y",
+        "lesion_to_image_area_ratio"
+      ],
+      "n_images": 1875,
+      "n_patients": 1064,
+      "n_benign_patients": 722,
+      "n_malignant_patients": 342,
+      "auroc": 0.9322666083491277,
+      "ci_lower": 0.9147368578019973,
+      "ci_upper": 0.9484296511885498,
+      "p_value": 0.000999000999000999,
+      "delta_vs_dinov3_c4": {
+        "convention": "geometry_feature_baseline_minus_C4",
+        "delta_auroc": 0.00474340263063663,
+        "ci_lower": -0.008438973997903068,
+        "ci_upper": 0.018053491717905316,
+        "p_value": 0.24075924075924077
+      },
+      "fold_seed_aurocs": [
+        {
+          "fold": 0,
+          "seed": 2026,
+          "n_test_patients": 213,
+          "auroc": 0.9414251207729469
+        },
+        {
+          "fold": 0,
+          "seed": 2027,
+          "n_test_patients": 213,
+          "auroc": 0.9414251207729469
+        },
+        {
+          "fold": 0,
+          "seed": 2028,
+          "n_test_patients": 213,
+          "auroc": 0.9400161030595813
+        },
+        {
+          "fold": 0,
+          "seed": 2029,
+          "n_test_patients": 213,
+          "auroc": 0.9414251207729469
+        },
+        {
+          "fold": 0,
+          "seed": 2030,
+          "n_test_patients": 213,
+          "auroc": 0.9403180354267312
+        },
+        {
+          "fold": 1,
+          "seed": 2026,
+          "n_test_patients": 213,
+          "auroc": 0.9244162640901772
+        },
+        {
+          "fold": 1,
+          "seed": 2027,
+          "n_test_patients": 213,
+          "auroc": 0.9244162640901772
+        },
+        {
+          "fold": 1,
+          "seed": 2028,
+          "n_test_patients": 213,
+          "auroc": 0.9234098228663445
+        },
+        {
+          "fold": 1,
+          "seed": 2029,
+          "n_test_patients": 213,
+          "auroc": 0.9244162640901772
+        },
+        {
+          "fold": 1,
+          "seed": 2030,
+          "n_test_patients": 213,
+          "auroc": 0.9234098228663445
+        },
+        {
+          "fold": 2,
+          "seed": 2026,
+          "n_test_patients": 213,
+          "auroc": 0.9407707910750507
+        },
+        {
+          "fold": 2,
+          "seed": 2027,
+          "n_test_patients": 213,
+          "auroc": 0.9424949290060853
+        },
+        {
+          "fold": 2,
+          "seed": 2028,
+          "n_test_patients": 213,
+          "auroc": 0.9424949290060853
+        },
+        {
+          "fold": 2,
+          "seed": 2029,
+          "n_test_patients": 213,
+          "auroc": 0.9425963488843814
+        },
+        {
+          "fold": 2,
+          "seed": 2030,
+          "n_test_patients": 213,
+          "auroc": 0.9407707910750507
+        },
+        {
+          "fold": 3,
+          "seed": 2026,
+          "n_test_patients": 213,
+          "auroc": 0.9221095334685598
+        },
+        {
+          "fold": 3,
+          "seed": 2027,
+          "n_test_patients": 213,
+          "auroc": 0.9221095334685598
+        },
+        {
+          "fold": 3,
+          "seed": 2028,
+          "n_test_patients": 213,
+          "auroc": 0.9221095334685598
+        },
+        {
+          "fold": 3,
+          "seed": 2029,
+          "n_test_patients": 213,
+          "auroc": 0.9221095334685598
+        },
+        {
+          "fold": 3,
+          "seed": 2030,
+          "n_test_patients": 213,
+          "auroc": 0.9221095334685598
+        },
+        {
+          "fold": 4,
+          "seed": 2026,
+          "n_test_patients": 212,
+          "auroc": 0.9367851307189542
+        },
+        {
+          "fold": 4,
+          "seed": 2027,
+          "n_test_patients": 212,
+          "auroc": 0.9367851307189543
+        },
+        {
+          "fold": 4,
+          "seed": 2028,
+          "n_test_patients": 212,
+          "auroc": 0.9371936274509803
+        },
+        {
+          "fold": 4,
+          "seed": 2029,
+          "n_test_patients": 212,
+          "auroc": 0.9371936274509803
+        },
+        {
+          "fold": 4,
+          "seed": 2030,
+          "n_test_patients": 212,
+          "auroc": 0.9367851307189543
+        }
+      ]
+    },
+    "BUS-UCLM": {
+      "dataset": "BUS-UCLM",
+      "model": "interpretable_mask_geometry_logistic_probe",
+      "feature_names": [
+        "sqrt_normalized_area",
+        "normalized_perimeter",
+        "compactness",
+        "eccentricity",
+        "solidity",
+        "bbox_aspect_ratio",
+        "centroid_x",
+        "centroid_y",
+        "lesion_to_image_area_ratio"
+      ],
+      "n_images": 260,
+      "n_patients": 35,
+      "n_benign_patients": 18,
+      "n_malignant_patients": 17,
+      "auroc": 0.888888888888889,
+      "ci_lower": 0.7587269756387404,
+      "ci_upper": 0.9803921568627451,
+      "p_value": 0.000999000999000999,
+      "delta_vs_dinov3_c4": {
+        "convention": "geometry_feature_baseline_minus_C4",
+        "delta_auroc": 0.0016237260185524493,
+        "ci_lower": -0.14001307189542495,
+        "ci_upper": 0.137265558397272,
+        "p_value": 0.4865134865134865
+      },
+      "fold_seed_aurocs": [
+        {
+          "fold": 0,
+          "seed": 2026,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 0,
+          "seed": 2027,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 0,
+          "seed": 2028,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 0,
+          "seed": 2029,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 0,
+          "seed": 2030,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 1,
+          "seed": 2026,
+          "n_test_patients": 7,
+          "auroc": 0.75
+        },
+        {
+          "fold": 1,
+          "seed": 2027,
+          "n_test_patients": 7,
+          "auroc": 0.75
+        },
+        {
+          "fold": 1,
+          "seed": 2028,
+          "n_test_patients": 7,
+          "auroc": 0.6666666666666666
+        },
+        {
+          "fold": 1,
+          "seed": 2029,
+          "n_test_patients": 7,
+          "auroc": 0.6666666666666666
+        },
+        {
+          "fold": 1,
+          "seed": 2030,
+          "n_test_patients": 7,
+          "auroc": 0.75
+        },
+        {
+          "fold": 2,
+          "seed": 2026,
+          "n_test_patients": 7,
+          "auroc": 0.5
+        },
+        {
+          "fold": 2,
+          "seed": 2027,
+          "n_test_patients": 7,
+          "auroc": 0.5
+        },
+        {
+          "fold": 2,
+          "seed": 2028,
+          "n_test_patients": 7,
+          "auroc": 0.5
+        },
+        {
+          "fold": 2,
+          "seed": 2029,
+          "n_test_patients": 7,
+          "auroc": 0.5
+        },
+        {
+          "fold": 2,
+          "seed": 2030,
+          "n_test_patients": 7,
+          "auroc": 0.5
+        },
+        {
+          "fold": 3,
+          "seed": 2026,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 3,
+          "seed": 2027,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 3,
+          "seed": 2028,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 3,
+          "seed": 2029,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 3,
+          "seed": 2030,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 4,
+          "seed": 2026,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 4,
+          "seed": 2027,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 4,
+          "seed": 2028,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 4,
+          "seed": 2029,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        },
+        {
+          "fold": 4,
+          "seed": 2030,
+          "n_test_patients": 7,
+          "auroc": 1.0
+        }
+      ]
+    }
+  }
+}

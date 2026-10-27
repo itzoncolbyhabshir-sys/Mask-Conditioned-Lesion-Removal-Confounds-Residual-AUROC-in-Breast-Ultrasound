@@ -1,0 +1,394 @@
+{
+  "source": "BIBM fully-covered DINOv3/BUS-BRA geometry sensitivity",
+  "coverage": {
+    "encoder": "DINOv3",
+    "dataset": "BUS-BRA",
+    "threshold": 0.95,
+    "crop_target": 256,
+    "total_images": 1875,
+    "retained_images": 1632,
+    "total_patients": 1064,
+    "retained_patients": 955,
+    "coverage_min": 0.06876704029082097,
+    "coverage_median": 1.0,
+    "coverage_q1": 1.0,
+    "coverage_q3": 1.0,
+    "below_0_95_rate": 0.1296,
+    "below_0_90_rate": 0.09493333333333333
+  },
+  "endpoints": {
+    "C4_lesion-removed-inpaint": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9305871597921243,
+      "ci_lower": 0.9140100062601231,
+      "ci_upper": 0.9474101225195505
+    },
+    "C5d_dilated-mask-only": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9482744914892138,
+      "ci_lower": 0.9334137792263284,
+      "ci_upper": 0.9624023718910539,
+      "delta_vs_c4": {
+        "convention": "C5d_dilated-mask-only_minus_C4",
+        "delta_auroc": 0.017317895008793972,
+        "ci_lower": 0.005189319037729614,
+        "ci_upper": 0.02997866092987668,
+        "p_value": 0.001998001998001998
+      }
+    },
+    "C6d_dilated-geometry-rendering": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9392619016862587,
+      "ci_lower": 0.9225067569581764,
+      "ci_upper": 0.9548953168317816,
+      "delta_vs_c4": {
+        "convention": "C6d_dilated-geometry-rendering_minus_C4",
+        "delta_auroc": 0.008158882915826168,
+        "ci_lower": -0.0051578942138576795,
+        "ci_upper": 0.02127125212397052,
+        "p_value": 0.1108891108891109
+      }
+    },
+    "dilated_mask_geometry_features": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9318093742857995,
+      "ci_lower": 0.91363377783519,
+      "ci_upper": 0.9488524349891194,
+      "delta_vs_c4": {
+        "convention": "dilated_mask_geometry_features_minus_C4",
+        "delta_auroc": 0.0008755477607639378,
+        "ci_lower": -0.012432554627025973,
+        "ci_upper": 0.015409590905929124,
+        "p_value": 0.46353646353646355
+      }
+    }
+  },
+  "explicit_geometry_endpoint": {
+    "endpoints": {
+      "C4_lesion-removed-inpaint": {
+        "n_patients": 955,
+        "n_benign_patients": 641,
+        "n_malignant_patients": 314,
+        "auroc": 0.9305871597921243,
+        "ci_lower": 0.9140100062601231,
+        "ci_upper": 0.9474101225195505
+      },
+      "C5d_dilated-mask-only": {
+        "n_patients": 955,
+        "n_benign_patients": 641,
+        "n_malignant_patients": 314,
+        "auroc": 0.9482744914892138,
+        "ci_lower": 0.9334137792263284,
+        "ci_upper": 0.9624023718910539,
+        "delta_vs_c4": {
+          "convention": "C5d_dilated-mask-only_minus_C4",
+          "delta_auroc": 0.017317895008793972,
+          "ci_lower": 0.005189319037729614,
+          "ci_upper": 0.02997866092987668,
+          "p_value": 0.001998001998001998
+        }
+      },
+      "C6d_dilated-geometry-rendering": {
+        "n_patients": 955,
+        "n_benign_patients": 641,
+        "n_malignant_patients": 314,
+        "auroc": 0.9392619016862587,
+        "ci_lower": 0.9225067569581764,
+        "ci_upper": 0.9548953168317816,
+        "delta_vs_c4": {
+          "convention": "C6d_dilated-geometry-rendering_minus_C4",
+          "delta_auroc": 0.008158882915826168,
+          "ci_lower": -0.0051578942138576795,
+          "ci_upper": 0.02127125212397052,
+          "p_value": 0.1108891108891109
+        }
+      },
+      "dilated_mask_geometry_features": {
+        "n_patients": 955,
+        "n_benign_patients": 641,
+        "n_malignant_patients": 314,
+        "auroc": 0.9318093742857995,
+        "ci_lower": 0.91363377783519,
+        "ci_upper": 0.9488524349891194,
+        "delta_vs_c4": {
+          "convention": "dilated_mask_geometry_features_minus_C4",
+          "delta_auroc": 0.0008755477607639378,
+          "ci_lower": -0.012432554627025973,
+          "ci_upper": 0.015409590905929124,
+          "p_value": 0.46353646353646355
+        }
+      }
+    },
+    "explicit_dilated_geometry": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9318093742857995,
+      "ci_lower": 0.91363377783519,
+      "ci_upper": 0.9488524349891194,
+      "delta_vs_c4": {
+        "convention": "dilated_mask_geometry_features_minus_C4",
+        "delta_auroc": 0.0008755477607639378,
+        "ci_lower": -0.012432554627025973,
+        "ci_upper": 0.015409590905929124,
+        "p_value": 0.46353646353646355
+      }
+    },
+    "c4_reference": {
+      "n_patients": 955,
+      "n_benign_patients": 641,
+      "n_malignant_patients": 314,
+      "auroc": 0.9305871597921243,
+      "ci_lower": 0.9140100062601231,
+      "ci_upper": 0.9474101225195505
+    },
+    "delta_vs_c4": {
+      "convention": "dilated_mask_geometry_features_minus_C4",
+      "delta_auroc": 0.0008755477607639378,
+      "ci_lower": -0.012432554627025973,
+      "ci_upper": 0.015409590905929124,
+      "p_value": 0.46353646353646355
+    }
+  },
+  "recoverability": {
+    "n_prediction_rows": 14688,
+    "n_images": 1632,
+    "n_patients": 955,
+    "targets": {
+      "sqrt_normalized_area": {
+        "spearman": {
+          "value": 0.9858434687684408,
+          "ci_lower": 0.9835632241495437,
+          "ci_upper": 0.9875139798295582
+        },
+        "r2": {
+          "value": 0.9734485462959973,
+          "ci_lower": 0.970187417488603,
+          "ci_upper": 0.9766386712080712
+        },
+        "standardized_mae": {
+          "value": 0.12461397024185673,
+          "ci_lower": 0.11795022194391609,
+          "ci_upper": 0.13118509224698852
+        }
+      },
+      "normalized_perimeter": {
+        "spearman": {
+          "value": 0.977978758029445,
+          "ci_lower": 0.9748689513225107,
+          "ci_upper": 0.9802202553416797
+        },
+        "r2": {
+          "value": 0.9575960674181717,
+          "ci_lower": 0.9525547134764774,
+          "ci_upper": 0.9621801375070981
+        },
+        "standardized_mae": {
+          "value": 0.1552085283989003,
+          "ci_lower": 0.1472570026472994,
+          "ci_upper": 0.16381854815583607
+        }
+      },
+      "compactness": {
+        "spearman": {
+          "value": 0.8296820261657538,
+          "ci_lower": 0.8095554449623074,
+          "ci_upper": 0.8461700074405606
+        },
+        "r2": {
+          "value": 0.6878404758717873,
+          "ci_lower": 0.658100182740231,
+          "ci_upper": 0.7137412386478307
+        },
+        "standardized_mae": {
+          "value": 0.4395331714760025,
+          "ci_lower": 0.4198596973084648,
+          "ci_upper": 0.4609710641197124
+        }
+      },
+      "eccentricity": {
+        "spearman": {
+          "value": 0.8800016739847225,
+          "ci_lower": 0.8672716643209856,
+          "ci_upper": 0.8909080967265244
+        },
+        "r2": {
+          "value": 0.692102375470012,
+          "ci_lower": 0.6616709877162409,
+          "ci_upper": 0.7192428829039468
+        },
+        "standardized_mae": {
+          "value": 0.40288946044905594,
+          "ci_lower": 0.38548984375167666,
+          "ci_upper": 0.42228968092193647
+        }
+      },
+      "solidity": {
+        "spearman": {
+          "value": 0.8101172143298782,
+          "ci_lower": 0.7867591886911706,
+          "ci_upper": 0.8284657244783272
+        },
+        "r2": {
+          "value": 0.6810140182874178,
+          "ci_lower": 0.6507101600741101,
+          "ci_upper": 0.7083823292942747
+        },
+        "standardized_mae": {
+          "value": 0.42588053370083145,
+          "ci_lower": 0.4052949444141216,
+          "ci_upper": 0.45047767289447965
+        }
+      },
+      "bbox_aspect_ratio": {
+        "spearman": {
+          "value": 0.8842710813026354,
+          "ci_lower": 0.8711378774666968,
+          "ci_upper": 0.8954053102527055
+        },
+        "r2": {
+          "value": 0.7560639107133985,
+          "ci_lower": 0.7342957832688403,
+          "ci_upper": 0.7772996856851352
+        },
+        "standardized_mae": {
+          "value": 0.3747284820272154,
+          "ci_lower": 0.3575510108086679,
+          "ci_upper": 0.393298404577016
+        }
+      },
+      "centroid_x": {
+        "spearman": {
+          "value": 0.684333416169387,
+          "ci_lower": 0.6553767857031204,
+          "ci_upper": 0.7114446461235966
+        },
+        "r2": {
+          "value": 0.4597776740932956,
+          "ci_lower": 0.41857265884896455,
+          "ci_upper": 0.4978406593594062
+        },
+        "standardized_mae": {
+          "value": 0.5622838397837445,
+          "ci_lower": 0.5412651095111728,
+          "ci_upper": 0.5839365522948663
+        }
+      },
+      "centroid_y": {
+        "spearman": {
+          "value": 0.9460951796859551,
+          "ci_lower": 0.9384188993062165,
+          "ci_upper": 0.9518794580825719
+        },
+        "r2": {
+          "value": 0.884922492200015,
+          "ci_lower": 0.8697378094057613,
+          "ci_upper": 0.8975837539192341
+        },
+        "standardized_mae": {
+          "value": 0.25444741467576804,
+          "ci_lower": 0.24133123704294393,
+          "ci_upper": 0.26845736499739825
+        }
+      },
+      "lesion_to_image_area_ratio": {
+        "spearman": {
+          "value": 0.9780875079571973,
+          "ci_lower": 0.9736768949668119,
+          "ci_upper": 0.9814270157231668
+        },
+        "r2": {
+          "value": 0.9705040953608732,
+          "ci_lower": 0.9635453827254185,
+          "ci_upper": 0.9759275050136001
+        },
+        "standardized_mae": {
+          "value": 0.11709768001164264,
+          "ci_lower": 0.10950198538076646,
+          "ci_upper": 0.12485431009369624
+        }
+      }
+    },
+    "core_targets": {
+      "sqrt_normalized_area": {
+        "spearman": {
+          "value": 0.9858434687684408,
+          "ci_lower": 0.9835632241495437,
+          "ci_upper": 0.9875139798295582
+        },
+        "r2": {
+          "value": 0.9734485462959973,
+          "ci_lower": 0.970187417488603,
+          "ci_upper": 0.9766386712080712
+        },
+        "standardized_mae": {
+          "value": 0.12461397024185673,
+          "ci_lower": 0.11795022194391609,
+          "ci_upper": 0.13118509224698852
+        }
+      },
+      "normalized_perimeter": {
+        "spearman": {
+          "value": 0.977978758029445,
+          "ci_lower": 0.9748689513225107,
+          "ci_upper": 0.9802202553416797
+        },
+        "r2": {
+          "value": 0.9575960674181717,
+          "ci_lower": 0.9525547134764774,
+          "ci_upper": 0.9621801375070981
+        },
+        "standardized_mae": {
+          "value": 0.1552085283989003,
+          "ci_lower": 0.1472570026472994,
+          "ci_upper": 0.16381854815583607
+        }
+      },
+      "centroid_x": {
+        "spearman": {
+          "value": 0.684333416169387,
+          "ci_lower": 0.6553767857031204,
+          "ci_upper": 0.7114446461235966
+        },
+        "r2": {
+          "value": 0.4597776740932956,
+          "ci_lower": 0.41857265884896455,
+          "ci_upper": 0.4978406593594062
+        },
+        "standardized_mae": {
+          "value": 0.5622838397837445,
+          "ci_lower": 0.5412651095111728,
+          "ci_upper": 0.5839365522948663
+        }
+      },
+      "centroid_y": {
+        "spearman": {
+          "value": 0.9460951796859551,
+          "ci_lower": 0.9384188993062165,
+          "ci_upper": 0.9518794580825719
+        },
+        "r2": {
+          "value": 0.884922492200015,
+          "ci_lower": 0.8697378094057613,
+          "ci_upper": 0.8975837539192341
+        },
+        "standardized_mae": {
+          "value": 0.25444741467576804,
+          "ci_lower": 0.24133123704294393,
+          "ci_upper": 0.26845736499739825
+        }
+      }
+    },
+    "median_core_spearman": 0.9620369688577001,
+    "median_core_r2": 0.9212592798090933
+  },
+  "claim_gate": "The fully-covered subset preserves the direction of the primary C4-aligned mask-control, geometry endpoint, and C4 recoverability findings."
+}

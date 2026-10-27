@@ -1,0 +1,246 @@
+{
+  "source": "BIBM preprocessing and crop audit",
+  "note": "C4 dilation is applied in original image/mask space before encoder-specific resizing; binary masks use nearest-neighbor resizing when resizing is required.",
+  "encoders": [
+    {
+      "encoder": "ResNet-50",
+      "input_geometry": "RGB conversion from grayscale-compatible source; custom Resize short side to 224",
+      "crop_padding": "CenterCrop 224 x 224",
+      "interpolation": "bilinear image resize; ImageNet normalization",
+      "feature": "global average pooled penultimate feature",
+      "feature_dim": 2048,
+      "crop_audit": "resize_short_center_crop_224"
+    },
+    {
+      "encoder": "DINOv3",
+      "input_geometry": "grayscale-to-3-channel, timm resolved eval transform, input 256 x 256",
+      "crop_padding": "Resize short side to 256 and CenterCrop 256 x 256 (crop_pct=1.0)",
+      "interpolation": "bicubic image resize with antialias; ImageNet normalization",
+      "feature": "CLS token",
+      "feature_dim": 1024,
+      "crop_audit": "resize_short_center_crop_256"
+    },
+    {
+      "encoder": "MedSAM2",
+      "input_geometry": "RGB conversion and direct Resize 512 x 512",
+      "crop_padding": "no crop; aspect ratio is stretched to square",
+      "interpolation": "bilinear image resize; masks/conditions use nearest neighbor where mask semantics are required",
+      "feature": "spatial mean of image_encoder(images)[\"vision_features\"]",
+      "feature_dim": 256,
+      "crop_audit": "no_crop"
+    },
+    {
+      "encoder": "UltraSam",
+      "input_geometry": "RGB conversion, keep-ratio resize to 1024 long side",
+      "crop_padding": "zero padding on 1024 x 1024 canvas",
+      "interpolation": "bilinear image resize; ultrasound checkpoint normalization",
+      "feature": "mean pooled encoder tokens",
+      "feature_dim": 768,
+      "crop_audit": "no_crop"
+    }
+  ],
+  "datasets": {
+    "BUS-BRA": {
+      "n_images": 1875,
+      "n_patients": 1064,
+      "image_width": {
+        "min": 240,
+        "median": 286.0,
+        "max": 579
+      },
+      "image_height": {
+        "min": 268,
+        "median": 383.0,
+        "max": 478
+      },
+      "short_edge": {
+        "min": 240,
+        "median": 286.0,
+        "max": 478
+      },
+      "crop_coverage": {
+        "ResNet-50_original_mask": {
+          "min": 0.04814686525805334,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.15093333333333334,
+          "below_0_95_rate": 0.11733333333333333,
+          "below_0_90_rate": 0.088
+        },
+        "ResNet-50_dilated_mask": {
+          "min": 0.06876704029082097,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.1696,
+          "below_0_95_rate": 0.12906666666666666,
+          "below_0_90_rate": 0.09386666666666667
+        },
+        "DINOv3_original_mask": {
+          "min": 0.04814686525805334,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.14933333333333335,
+          "below_0_95_rate": 0.11786666666666666,
+          "below_0_90_rate": 0.08693333333333333
+        },
+        "DINOv3_dilated_mask": {
+          "min": 0.06876704029082097,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.17066666666666666,
+          "below_0_95_rate": 0.1296,
+          "below_0_90_rate": 0.09493333333333333
+        },
+        "MedSAM2_original_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "MedSAM2_dilated_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "UltraSam_original_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "UltraSam_dilated_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        }
+      }
+    },
+    "BUS-UCLM": {
+      "n_images": 260,
+      "n_patients": 35,
+      "image_width": {
+        "min": 856,
+        "median": 856.0,
+        "max": 856
+      },
+      "image_height": {
+        "min": 606,
+        "median": 606.0,
+        "max": 606
+      },
+      "short_edge": {
+        "min": 606,
+        "median": 606.0,
+        "max": 606
+      },
+      "crop_coverage": {
+        "ResNet-50_original_mask": {
+          "min": 0.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.15384615384615385,
+          "below_0_95_rate": 0.11153846153846154,
+          "below_0_90_rate": 0.09230769230769231
+        },
+        "ResNet-50_dilated_mask": {
+          "min": 0.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.1576923076923077,
+          "below_0_95_rate": 0.11153846153846154,
+          "below_0_90_rate": 0.09615384615384616
+        },
+        "DINOv3_original_mask": {
+          "min": 0.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.15384615384615385,
+          "below_0_95_rate": 0.11153846153846154,
+          "below_0_90_rate": 0.09230769230769231
+        },
+        "DINOv3_dilated_mask": {
+          "min": 0.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.1576923076923077,
+          "below_0_95_rate": 0.11153846153846154,
+          "below_0_90_rate": 0.09615384615384616
+        },
+        "MedSAM2_original_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "MedSAM2_dilated_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "UltraSam_original_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        },
+        "UltraSam_dilated_mask": {
+          "min": 1.0,
+          "q1": 1.0,
+          "median": 1.0,
+          "q3": 1.0,
+          "max": 1.0,
+          "below_0_99_rate": 0.0,
+          "below_0_95_rate": 0.0,
+          "below_0_90_rate": 0.0
+        }
+      }
+    }
+  }
+}

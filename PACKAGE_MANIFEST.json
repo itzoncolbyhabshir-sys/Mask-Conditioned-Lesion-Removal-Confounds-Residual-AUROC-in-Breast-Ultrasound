@@ -1,0 +1,453 @@
+{
+  "package": "Mask-Conditioned Lesion Removal Confounds Residual AUROC in Breast Ultrasound",
+  "scope": "main-text experiments only",
+  "prepared_date": "2026-10-27",
+  "validation": "54 tests and 70 subtests passed; 30 modules imported; no full model-training rerun.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 685,
+      "sha256": "ce929c3b19b7c11c0f2a40cb7c3ad4188bac1c68f188eed9a3598e36eab214f2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3630,
+      "sha256": "2abcae219e8da1ff1d2f89b2ad94c18b97b4580b2e8fd4e3b287cd40965ea886"
+    },
+    {
+      "path": "data/bus_uclm_images_files.json",
+      "bytes": 513388,
+      "sha256": "85426072a2c612a7ea0728c62f52cb1ca768488a264bfbd006beca872f11974f"
+    },
+    {
+      "path": "data/bus_uclm_masks_files.json",
+      "bytes": 510650,
+      "sha256": "2cd81f488e5188b50b40b715f0b2cc8670be1597c2084385d1584fa86709688a"
+    },
+    {
+      "path": "docs/DATA_AND_MODELS.md",
+      "bytes": 10646,
+      "sha256": "8564e60312684f0950c99245e29977205409dca8b000e6fa561786e3877da26f"
+    },
+    {
+      "path": "docs/EXPERIMENTS.md",
+      "bytes": 4860,
+      "sha256": "238de0259b19d3eb7fb80f132979c904ac54bbad63c63cbec57cdfe2cc790b18"
+    },
+    {
+      "path": "docs/PAPER_ALIGNMENT.md",
+      "bytes": 1746,
+      "sha256": "4672588c4dd247beca0232e60019c9509caf0500969cc8caa5a8ef87473d4d45"
+    },
+    {
+      "path": "docs/RELEASE_CHECKLIST.md",
+      "bytes": 1739,
+      "sha256": "c30281a8379770eb93608def262cfc4a5bb9f09e418f5c45e6b07df9c5370f35"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY_SOP.md",
+      "bytes": 8451,
+      "sha256": "3349fe54fdc94e0a7319c689669bfca70e5b043f668649b04c5b7cc009d4d652"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 2665,
+      "sha256": "32910b4b8c5af358a477f26b49449e872981a6603814279698b8f57110f6781d"
+    },
+    {
+      "path": "reference-results/README.md",
+      "bytes": 1154,
+      "sha256": "88ed281704b8d6ee2655fab2a4fc896b7cfc9dde3a93282966d2984c0369338e"
+    },
+    {
+      "path": "reference-results/bibm_dilated_mask_controls.json",
+      "bytes": 47795,
+      "sha256": "c1acd75360183a168201d0a90c12b377a9bcef2f3b81f4401800cbcb08335d79"
+    },
+    {
+      "path": "reference-results/bibm_dilated_mask_controls.md",
+      "bytes": 1510,
+      "sha256": "73c02796a4fe17ac8cf7d075e886d5b0a7b91fcbde92327e5bc84f4c408915a5"
+    },
+    {
+      "path": "reference-results/bibm_dilation_scale_audit.json",
+      "bytes": 4202,
+      "sha256": "16d1ff6f650fdee21625affc65b21e35a39bb70a4f148b102c664a5ce7635e5a"
+    },
+    {
+      "path": "reference-results/bibm_dilation_scale_audit.md",
+      "bytes": 628,
+      "sha256": "1b705494f632295457938c37ca72d14b27cd6ee0095a6d812d293f1c09c1f28b"
+    },
+    {
+      "path": "reference-results/bibm_fully_covered_geometry_sensitivity.json",
+      "bytes": 12155,
+      "sha256": "a7d6b2d18d30efbc58a912886ef9973cd3c9ffde2101542a5f355497b16e654d"
+    },
+    {
+      "path": "reference-results/bibm_fully_covered_geometry_sensitivity.md",
+      "bytes": 1188,
+      "sha256": "9fe0d38458eb73a7fcb12216d2c7eab5ffc89ef2685935f4fcf6d4e4f84d2595"
+    },
+    {
+      "path": "reference-results/bibm_geometry_feature_baseline.json",
+      "bytes": 8779,
+      "sha256": "1aa36052b3e6991568a6c63c1ad225465ec84c7a6739ce4d029ad092d83ec775"
+    },
+    {
+      "path": "reference-results/bibm_geometry_feature_baseline.md",
+      "bytes": 596,
+      "sha256": "c36c6ff881649e8e01c2ccbb5c1c2a32e71dd6f5b1ec28000b1f781649bf8700"
+    },
+    {
+      "path": "reference-results/bibm_geometry_recoverability.json",
+      "bytes": 119303,
+      "sha256": "6a8952de3ddbf8828b0e09a9fd1ef77adae16350343e745169cf957bb9dda054"
+    },
+    {
+      "path": "reference-results/bibm_geometry_recoverability.md",
+      "bytes": 2854,
+      "sha256": "a1c2c1d8d724f78cd0f123d84f28322b1f7aa85db68f4ae037dba303dfc407b9"
+    },
+    {
+      "path": "reference-results/bibm_operator_sensitivity.json",
+      "bytes": 2259,
+      "sha256": "08df1be4e05e94b2393f6089230ad0c95dca126355dae939083f92276b3f2daf"
+    },
+    {
+      "path": "reference-results/bibm_operator_sensitivity.md",
+      "bytes": 509,
+      "sha256": "d4ee6532cf17d947a135e7f0a6304cb89ac46aac9f9670cea9ffa3c77f1d5d13"
+    },
+    {
+      "path": "reference-results/bibm_patient_balanced_sensitivity.json",
+      "bytes": 10139,
+      "sha256": "c7c1fd3e959709f287d8d1de6e02d604ff2126674341b55940bf59dc21507211"
+    },
+    {
+      "path": "reference-results/bibm_patient_balanced_sensitivity.md",
+      "bytes": 666,
+      "sha256": "64ef67ba646bb25dda3373ac45665591e183f098103c8c1d17c8fbf5f5c9f727"
+    },
+    {
+      "path": "reference-results/bibm_patient_label_sensitivity.json",
+      "bytes": 10359,
+      "sha256": "da5587d097ae56b1fd3b45be62f0ae55d4842ef680ac0b765ad0f2b3bff7862b"
+    },
+    {
+      "path": "reference-results/bibm_patient_label_sensitivity.md",
+      "bytes": 3340,
+      "sha256": "bfd642fc48258ab109dce5bed9932704d0a15e3a788a10615209e16ffccdabd1"
+    },
+    {
+      "path": "reference-results/bibm_patient_level_tuning_sensitivity.json",
+      "bytes": 11795,
+      "sha256": "5663b8ffbb65cc0d5d45e9f0d2c94fc2e3d2af5700590aa62d54a32bac7d2f7a"
+    },
+    {
+      "path": "reference-results/bibm_patient_level_tuning_sensitivity.md",
+      "bytes": 802,
+      "sha256": "07cdb407756b4275f3080291839f0298c736aba91800b45c118c475685e97ea6"
+    },
+    {
+      "path": "reference-results/bibm_preprocessing_audit.json",
+      "bytes": 7217,
+      "sha256": "3f5f79955f2eb0773f55c13ed18f457d52b0a6267b16917490afc56963461cb4"
+    },
+    {
+      "path": "reference-results/bibm_preprocessing_audit.md",
+      "bytes": 2686,
+      "sha256": "0c9e165401b9274ba527d6421bc6ce374919d8050e33a6760212b0e445210d29"
+    },
+    {
+      "path": "reference-results/bibm_primary_endpoints.json",
+      "bytes": 6793,
+      "sha256": "c8bd41e587f4540c1204af69cd78105b8ba401c2b139a238ae4a57259bb20d24"
+    },
+    {
+      "path": "reference-results/bibm_primary_endpoints.md",
+      "bytes": 1775,
+      "sha256": "7b7c428149e7b795dbfb8ffb8b35ad345e8ba1cf4f5d66b2b18a13f0e2009083"
+    },
+    {
+      "path": "reference-results/bibm_probe_cv_audit.json",
+      "bytes": 10777,
+      "sha256": "d85864249fb25b3c06adf24192899d67c7a2396f451cd8b57db2fb54b48180ba"
+    },
+    {
+      "path": "reference-results/bibm_probe_cv_audit.md",
+      "bytes": 337,
+      "sha256": "4d440e499922be388af005bcb388e1e398e275c90cbd104c7dacebf148022028"
+    },
+    {
+      "path": "reference-results/bibm_recoverability_split_sensitivity.json",
+      "bytes": 9689,
+      "sha256": "177ea060ed6e68e9b6b429d00cfa7dd8bc28dab9f6374e34d28b1575eccca8ca"
+    },
+    {
+      "path": "reference-results/bibm_recoverability_split_sensitivity.md",
+      "bytes": 779,
+      "sha256": "538aa542cc1d1f2de36a29acf02b34c1e22a410ec3c5d867ee652b8cf37b5a9f"
+    },
+    {
+      "path": "reference-results/fixed_shape_controls.json",
+      "bytes": 2218,
+      "sha256": "a4d2dbceea32ab357e93068398d82a9508cf4686730324012fcd2901e807ec76"
+    },
+    {
+      "path": "reference-results/fixed_shape_controls_bus_uclm.json",
+      "bytes": 2211,
+      "sha256": "a46c10fa9ba96125818d865ba4cddefe85adba3dfe8610de98a3114a9608b1ad"
+    },
+    {
+      "path": "reference-results/fixed_shape_controls_medsam2.json",
+      "bytes": 2216,
+      "sha256": "2cf933115a08b21850a1d0fb0c11470f00b708905f84d8f79ba0e469fc0d63df"
+    },
+    {
+      "path": "reference-results/fixed_shape_controls_ultrasam.json",
+      "bytes": 2228,
+      "sha256": "cf75c9b2397b66e2a9adec156513946b9ab5cee7edbdd2ea5d9431220117b497"
+    },
+    {
+      "path": "reference-results/fixed_shape_coverage.json",
+      "bytes": 9341,
+      "sha256": "2c71a9d305d084f63291a58b58f2db2000019c9509da0eb67dbee6b924cb86d0"
+    },
+    {
+      "path": "reference-results/fixed_shape_coverage.md",
+      "bytes": 531,
+      "sha256": "a74ceeca349cdc5b17086ac620d788e17304211d0974b5a143a79da01eacb0a5"
+    },
+    {
+      "path": "reproducibility/README.md",
+      "bytes": 796,
+      "sha256": "be64ab39522c9c2db979561a260985ac21d917f7ef45937e851a3c26db0de938"
+    },
+    {
+      "path": "reproducibility/bus_uclm_data_provenance.md",
+      "bytes": 1175,
+      "sha256": "089cdab64029b5e85564e5d8fb061c5ffe39c0da007a57e40968f103bf4bfb66"
+    },
+    {
+      "path": "reproducibility/seed_checkpoint_hashes.txt",
+      "bytes": 868,
+      "sha256": "0bddf0c14e29fde05039ded9a426c9a09fa5ba6671277fbf83d1f50bca385328"
+    },
+    {
+      "path": "reproducibility/splits_reference.csv",
+      "bytes": 93938,
+      "sha256": "1efe678dc53b98e69e2af3241cf3fc736501a4f5fe61cd639fa6e628e1fde3eb"
+    },
+    {
+      "path": "reproducibility/validation_environment.json",
+      "bytes": 600,
+      "sha256": "1647493031e62ce7b7f7f56b121b18e8d9079f8caecff5eb43ae8df791c81734"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 1003,
+      "sha256": "6d389e886c330f059956eb47f2a57de2879bf55163c12ea100d2138533c1ef04"
+    },
+    {
+      "path": "run_pipeline.py",
+      "bytes": 3099,
+      "sha256": "9703e8f803c3bdbe17de521556530ec2673d55bb3a84e9643971550eee096f91"
+    },
+    {
+      "path": "scripts/audit_bibm_dilation_scale.py",
+      "bytes": 5578,
+      "sha256": "fd82273214c57808dfb25a966bba2bae016cf107c2b9c8952c5bc2e6e6186833"
+    },
+    {
+      "path": "scripts/audit_bibm_preprocessing.py",
+      "bytes": 8125,
+      "sha256": "e3cb8ab6f00e4d81298a5f1193c72dea61e809c3be8d506b82eee46318043c1f"
+    },
+    {
+      "path": "scripts/audit_bibm_probe_cv.py",
+      "bytes": 4907,
+      "sha256": "54eb7bcd244da71c6156f370f975a4376fb15a10191160e1e5899b3368759882"
+    },
+    {
+      "path": "scripts/audit_fixed_shape_coverage.py",
+      "bytes": 4209,
+      "sha256": "8414489d572b5c4ff989dea0165306d6b47c5e42275624e879182269decd8aec"
+    },
+    {
+      "path": "scripts/download_bus_uclm.py",
+      "bytes": 2449,
+      "sha256": "9c59b5b911fad4c27819b7f7897a98911e4a412b80bd83b8471affe5af68acf5"
+    },
+    {
+      "path": "scripts/make_bibm_figures.py",
+      "bytes": 16576,
+      "sha256": "12bf5f10638f6e6c84d19dc18f32cff93bfd0a3586c307b0c285a83f10f60f64"
+    },
+    {
+      "path": "scripts/refresh_bibm_fixed_shape_statistics.py",
+      "bytes": 4202,
+      "sha256": "3fcecc9993f55e49df205af1ebcc71a78ccd9dd308f30560a41df39a3124d344"
+    },
+    {
+      "path": "scripts/run_bibm_dilated_mask_controls.py",
+      "bytes": 20044,
+      "sha256": "a02eec4d1c3396ecb36b0353303661b47cb2c0c9827a7297dce53f74c5536db3"
+    },
+    {
+      "path": "scripts/run_bibm_fully_covered_geometry_sensitivity.py",
+      "bytes": 13935,
+      "sha256": "6bf4be2ca01e882b97e15e1504dd2a6c426b6625cd598727c4fe20709e8fbc61"
+    },
+    {
+      "path": "scripts/run_bibm_geometry_feature_baseline.py",
+      "bytes": 10281,
+      "sha256": "c9fd6d8d349e81ecbd6b322d7985d87452692fb9538afa194a167cfc3344441c"
+    },
+    {
+      "path": "scripts/run_bibm_geometry_recoverability.py",
+      "bytes": 19511,
+      "sha256": "342e2a2a9bb0f06f417cf8faa322ba04d6f7065f504f10462c4c4caf2f37032a"
+    },
+    {
+      "path": "scripts/run_bibm_operator_sensitivity.py",
+      "bytes": 7187,
+      "sha256": "c1aa56c0335757f1819c1bf295c51d5526936515edd25c011c0be34a02d5cab1"
+    },
+    {
+      "path": "scripts/run_bibm_patient_balanced_sensitivity.py",
+      "bytes": 9845,
+      "sha256": "a61b43a4727281ae69627b66a9687c1764b68ebd703b3194ba401ab0bc115661"
+    },
+    {
+      "path": "scripts/run_bibm_patient_label_sensitivity.py",
+      "bytes": 8728,
+      "sha256": "156117e0b5f0600d02b5e30a41ef695951af0ba51579eab324aaeb9c79925131"
+    },
+    {
+      "path": "scripts/run_bibm_patient_level_tuning_sensitivity.py",
+      "bytes": 10896,
+      "sha256": "393ad453caf153aad9cadb6b8c41a00b5e331e23fa8d76bbb070d745c4c7d80d"
+    },
+    {
+      "path": "scripts/run_bibm_primary_endpoints.py",
+      "bytes": 4639,
+      "sha256": "a0ce6a2e11a1796b649b004e7d7a37f4ccf6aca5a1ff130f0c3ece7045a26541"
+    },
+    {
+      "path": "scripts/run_bibm_recoverability_split_sensitivity.py",
+      "bytes": 7076,
+      "sha256": "2d14b4d07f8b671a7797629016cb1d4397ff72ac8b2f2a46aaa4d501a42bca6b"
+    },
+    {
+      "path": "scripts/run_fixed_shape_controls.py",
+      "bytes": 4774,
+      "sha256": "3a252166f85c896e727bf88e69a0d16173a0343e697203e1cac633a1dafda825"
+    },
+    {
+      "path": "scripts/run_inpaint_sensitivity.py",
+      "bytes": 6281,
+      "sha256": "11b59717ed90312b1a9edb8cb2bec213845c172a2e78605b4f40f4722f945658"
+    },
+    {
+      "path": "src/__init__.py",
+      "bytes": 349,
+      "sha256": "eccdb182f7ac600897605708fab68f89719cfba515a1a2f616a287024a6383f6"
+    },
+    {
+      "path": "src/conditions.py",
+      "bytes": 9847,
+      "sha256": "19f410c3b81b0622d354cf7d84924b2eebbffb6279291ff4404d8988b33f809a"
+    },
+    {
+      "path": "src/config.py",
+      "bytes": 4937,
+      "sha256": "ade0a81e41dd3d5f3b4bc131867280bca9b7b25f3907a36a44b6e34975eee149"
+    },
+    {
+      "path": "src/exp1_primary.py",
+      "bytes": 2258,
+      "sha256": "896972093c6d71b3a9ced4ddcef357049006336a62391773c15f42bd124ad233"
+    },
+    {
+      "path": "src/exp2_controls.py",
+      "bytes": 2953,
+      "sha256": "d2201380369219ee9bc54f88a65643cb43b7bb26db84ea2cbc25daa93060bb6e"
+    },
+    {
+      "path": "src/features.py",
+      "bytes": 22057,
+      "sha256": "bed549a789f4f8e4aa41a134b92823f3c8c44b0a9c6321d0db2fbcd96a89c971"
+    },
+    {
+      "path": "src/manifest.py",
+      "bytes": 14306,
+      "sha256": "7d5317548e3dfce300f801c517dd52327c64f4266c5a6be9bdb187c04d9329f5"
+    },
+    {
+      "path": "src/masks.py",
+      "bytes": 9489,
+      "sha256": "dbddd5d499da59493ced1f09ec31d24e8909790a2fe93bb7c60474d5b358fcab"
+    },
+    {
+      "path": "src/probe.py",
+      "bytes": 20701,
+      "sha256": "56a50cb1f283639a886f010356412abb25cc64eb6877ffff08aee5e7ccdaad38"
+    },
+    {
+      "path": "src/splits.py",
+      "bytes": 8625,
+      "sha256": "4ef99fbf62c817f4a198e5fb1120e68dbb35b08e7214f8479989e759971286c2"
+    },
+    {
+      "path": "src/statistics.py",
+      "bytes": 12531,
+      "sha256": "51815f8fb3b95408c6154abcd5062ae9ca2e8be5cbc7f4b8429916a4e6c474b8"
+    },
+    {
+      "path": "tests/test_data_infra.py",
+      "bytes": 9627,
+      "sha256": "9a596e8f2fe81179e9dbb250f728bafa94687d069dbd97174d5851bb3df1df95"
+    },
+    {
+      "path": "tests/test_features.py",
+      "bytes": 6263,
+      "sha256": "be9a9f21958a902ef15186559df2deadaa703c0ba7336a46c3fbc0c0cd215a0d"
+    },
+    {
+      "path": "tests/test_pipeline_runtime.py",
+      "bytes": 9051,
+      "sha256": "71a0dd54b7ea692f609e2e78ba3fbb90fad4488db95e2b1c5a7506af76dbaa4a"
+    },
+    {
+      "path": "tests/test_probe_statistics.py",
+      "bytes": 5628,
+      "sha256": "2ba8faeb2f8c3467f6733c0a36dc262e9c80705d7007df4068dfa7545735cd48"
+    },
+    {
+      "path": "tools/restore_reference_splits.py",
+      "bytes": 4616,
+      "sha256": "8b7c511d3a770e21ffc4c54cf463b49f03a0ea200a71dbff1747ff518dc16865"
+    },
+    {
+      "path": "tools/test_maintext_controls.py",
+      "bytes": 8351,
+      "sha256": "67d37962271f4449d72818434bbc68580b9d9fa19e14594139f36087494c3cc2"
+    },
+    {
+      "path": "tools/test_maintext_scope.py",
+      "bytes": 5386,
+      "sha256": "cfc5c361ea3809a11421f6f6e1fac94edbe2f6c9679096438e8d04efba436ccb"
+    },
+    {
+      "path": "tools/test_restore_reference_splits.py",
+      "bytes": 1955,
+      "sha256": "da4b0a208edd6fdc48901226c8129db32e20734563ab9d60f52121cad740d2c4"
+    }
+  ]
+}

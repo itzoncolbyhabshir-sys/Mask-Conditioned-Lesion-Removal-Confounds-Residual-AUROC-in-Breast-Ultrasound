@@ -1,0 +1,63 @@
+{
+  "source": "BIBM operator sensitivity; DINOv3/BUS-BRA only",
+  "model": "DINOv3",
+  "dataset": "BUS-BRA",
+  "full_condition": "C1_full",
+  "operators": {
+    "Telea": {
+      "condition": "C4_lesion-removed-inpaint",
+      "c4_auroc": 0.927346065996015,
+      "c4_ci_lower": 0.9119646125933487,
+      "c4_ci_upper": 0.9421077943010805,
+      "c4_minus_full_delta": 0.04630979572662042,
+      "c4_minus_full_ci_lower": 0.02939467204483974,
+      "c4_minus_full_ci_upper": 0.06420609175292798,
+      "n_patients": 1064,
+      "geometry_recoverability": {
+        "available": true,
+        "median_footprint_spearman": 0.9651345313378221,
+        "median_nonredundant_spearman": 0.8768328670347554,
+        "target_spearman": {
+          "sqrt_normalized_area": 0.985003163478233,
+          "normalized_perimeter": 0.9770983490839749,
+          "compactness": 0.8265398647864504,
+          "eccentricity": 0.873884107743035,
+          "solidity": 0.8041680228848901,
+          "bbox_aspect_ratio": 0.8797816263264756,
+          "centroid_x": 0.6756699387647825,
+          "centroid_y": 0.9531707135916695
+        }
+      }
+    },
+    "Navier-Stokes": {
+      "condition": "C4_Navier-Stokes",
+      "c4_auroc": 0.9219071455184592,
+      "c4_ci_lower": 0.9046981054899483,
+      "c4_ci_upper": 0.9383063209732548,
+      "c4_minus_full_delta": 0.04087087524906463,
+      "c4_minus_full_ci_lower": 0.023892877970549706,
+      "c4_minus_full_ci_upper": 0.06033536634754006,
+      "n_patients": 1064,
+      "geometry_recoverability": {
+        "available": true,
+        "median_footprint_spearman": 0.9625447715572457,
+        "median_nonredundant_spearman": 0.8728537331884425,
+        "target_spearman": {
+          "sqrt_normalized_area": 0.981886006913998,
+          "normalized_perimeter": 0.9736261525123278,
+          "compactness": 0.806881008890598,
+          "eccentricity": 0.8728221202267363,
+          "solidity": 0.7809078959524681,
+          "bbox_aspect_ratio": 0.8728853461501486,
+          "centroid_x": 0.6713674384616182,
+          "centroid_y": 0.9514633906021637
+        }
+      }
+    }
+  },
+  "navier_minus_telea": {
+    "delta_auroc": -0.0054389204775557864,
+    "ci_lower": -0.01224739191006137,
+    "ci_upper": 0.001494994411235897
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "source": "BIBM stronger-accept patient-balanced training sensitivity",
+  "model": "DINOv3",
+  "dataset": "BUS-BRA",
+  "weighting": "per-image weight proportional to 1/n_images_for_patient; normalized within training fold; class_weight remains balanced",
+  "endpoints": {
+    "C4_lesion-removed-inpaint": {
+      "n_patients": 1064,
+      "auroc": 0.9279818891642773,
+      "ci_lower": 0.9124368226660835,
+      "ci_upper": 0.9428541778036966
+    },
+    "C5d_dilated-mask-only": {
+      "n_patients": 1064,
+      "auroc": 0.9451734136819425,
+      "ci_lower": 0.9297054964280508,
+      "ci_upper": 0.9591580810289806,
+      "delta_vs_patient_balanced_c4": {
+        "convention": "control_minus_patient_balanced_C4",
+        "delta_auroc": 0.017205107644457405,
+        "ci_lower": 0.006139743402828427,
+        "ci_upper": 0.028924284395198525,
+        "p_value": 0.004995004995004995
+      }
+    },
+    "C6d_dilated-geometry-rendering": {
+      "n_patients": 1064,
+      "auroc": 0.9355388702596751,
+      "ci_lower": 0.9177597155400042,
+      "ci_upper": 0.9516087946088675,
+      "delta_vs_patient_balanced_c4": {
+        "convention": "control_minus_patient_balanced_C4",
+        "delta_auroc": 0.007479698206735688,
+        "ci_lower": -0.005024116732273882,
+        "ci_upper": 0.020545289238793982,
+        "p_value": 0.11588411588411589
+      }
+    },
+    "dilated_mask_geometry_features": {
+      "n_patients": 1064,
+      "auroc": 0.9315214397952407,
+      "ci_lower": 0.9138950648782622,
+      "ci_upper": 0.9471943796471789,
+      "delta_vs_patient_balanced_c4": {
+        "convention": "control_minus_patient_balanced_C4",
+        "delta_auroc": 0.003420817741491305,
+        "ci_lower": -0.008893222206022946,
+        "ci_upper": 0.016274238227147023,
+        "p_value": 0.3036963036963037
+      },
+      "feature_names": [
+        "sqrt_normalized_area",
+        "normalized_perimeter",
+        "compactness",
+        "eccentricity",
+        "solidity",
+        "bbox_aspect_ratio",
+        "centroid_x",
+        "centroid_y",
+        "lesion_to_image_area_ratio"
+      ],
+      "prediction_file": "results\\bibm_dilated_geometry_feature_patient_balanced_predictions.csv",
+      "fold_metadata": [
+        {
+          "fold": 0,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9223741877523904,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 0,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9231638458107875,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 0,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9216406720542104,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 0,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9216978252800708,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 0,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9221003833658932,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 1,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.924837565602587,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 1,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.928911894879246,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 1,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 10.0,
+          "inner_cv_score": 0.9290576224883634,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 1,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9284121789194417,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 1,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 0.1,
+          "inner_cv_score": 0.9281010578304411,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 2,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 0.1,
+          "inner_cv_score": 0.9209340833272458,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 2,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.924349234178294,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 2,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9254876177953101,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 2,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 10.0,
+          "inner_cv_score": 0.9257554727640197,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 2,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9188521197068207,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 3,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9298706991014684,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 3,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9292132369055445,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 3,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9273017264470256,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 3,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9275026176735578,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 3,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9301872549735798,
+          "n_train_samples": 1500,
+          "n_train_groups": 851,
+          "fallback_reason": null
+        },
+        {
+          "fold": 4,
+          "seed": 2026,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 10.0,
+          "inner_cv_score": 0.9242153066939393,
+          "n_train_samples": 1500,
+          "n_train_groups": 852,
+          "fallback_reason": null
+        },
+        {
+          "fold": 4,
+          "seed": 2027,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 0.1,
+          "inner_cv_score": 0.9219811527503835,
+          "n_train_samples": 1500,
+          "n_train_groups": 852,
+          "fallback_reason": null
+        },
+        {
+          "fold": 4,
+          "seed": 2028,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 1.0,
+          "inner_cv_score": 0.9230647478510726,
+          "n_train_samples": 1500,
+          "n_train_groups": 852,
+          "fallback_reason": null
+        },
+        {
+          "fold": 4,
+          "seed": 2029,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 100.0,
+          "inner_cv_score": 0.9237039472082206,
+          "n_train_samples": 1500,
+          "n_train_groups": 852,
+          "fallback_reason": null
+        },
+        {
+          "fold": 4,
+          "seed": 2030,
+          "inner_cv_mode": "group3",
+          "inner_cv_n_splits": 3,
+          "selected_C": 10.0,
+          "inner_cv_score": 0.9227116663014098,
+          "n_train_samples": 1500,
+          "n_train_groups": 852,
+          "fallback_reason": null
+        }
+      ]
+    }
+  }
+}

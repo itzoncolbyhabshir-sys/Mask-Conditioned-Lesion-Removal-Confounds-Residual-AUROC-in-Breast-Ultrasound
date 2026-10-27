@@ -1,0 +1,63 @@
+{
+  "dataset": "BUS-BRA",
+  "model": "DINOv3",
+  "n_images": 1875,
+  "n_target_patients": 1064,
+  "fixed_shape_removal": {
+    "circle": {
+      "condition": "C10_fixed-circle-inpaint",
+      "endpoint": {
+        "auroc": 0.8767029531353778,
+        "bootstrap_mean": 0.876562363318268,
+        "ci_lower": 0.851931464742188,
+        "ci_upper": 0.8992521990571998,
+        "permutation_p": null,
+        "p_value_note": "not recomputed; manuscript figure uses AUROC and stratified patient bootstrap CI"
+      },
+      "c4_minus_fixed": {
+        "delta_auroc": 0.05067547099512399,
+        "observed_delta_auroc": 0.05064311286063716,
+        "ci_lower": 0.034999129286743993,
+        "ci_upper": 0.06773470784532881,
+        "p_value": 0.000999000999000999
+      }
+    },
+    "square": {
+      "condition": "C11_fixed-square-inpaint",
+      "endpoint": {
+        "auroc": 0.8713612285561549,
+        "bootstrap_mean": 0.8711542296415091,
+        "ci_lower": 0.8463428018337626,
+        "ci_upper": 0.8941859641023149,
+        "permutation_p": null,
+        "p_value_note": "not recomputed; manuscript figure uses AUROC and stratified patient bootstrap CI"
+      },
+      "c4_minus_fixed": {
+        "delta_auroc": 0.056083604671882836,
+        "observed_delta_auroc": 0.05598483743986005,
+        "ci_lower": 0.039140383275825606,
+        "ci_upper": 0.07437399766729846,
+        "p_value": 0.000999000999000999
+      }
+    },
+    "ellipse": {
+      "condition": "C12_fixed-ellipse-inpaint",
+      "endpoint": {
+        "auroc": 0.8743419027717031,
+        "bootstrap_mean": 0.8740961145939641,
+        "ci_lower": 0.8501314169542046,
+        "ci_upper": 0.8965180581879444,
+        "permutation_p": null,
+        "p_value_note": "not recomputed; manuscript figure uses AUROC and stratified patient bootstrap CI"
+      },
+      "c4_minus_fixed": {
+        "delta_auroc": 0.05314171971942783,
+        "observed_delta_auroc": 0.053004163224311895,
+        "ci_lower": 0.037632024428569076,
+        "ci_upper": 0.06987180265992772,
+        "p_value": 0.000999000999000999
+      }
+    }
+  },
+  "fixed_shape_statistics_note": "Fixed-shape statistics refreshed from prediction CSVs using stratified patient bootstrap."
+}

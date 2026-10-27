@@ -1,0 +1,312 @@
+{
+  "source": "BIBM C4 recoverability split-registry sensitivity",
+  "model": "DINOv3",
+  "dataset": "BUS-BRA",
+  "condition": "C4_lesion-removed-inpaint",
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "target_source": "dilated intervention-mask geometry used by C4",
+  "targets": [
+    "sqrt_normalized_area",
+    "normalized_perimeter",
+    "compactness",
+    "eccentricity",
+    "solidity",
+    "bbox_aspect_ratio",
+    "centroid_x",
+    "centroid_y",
+    "lesion_to_image_area_ratio"
+  ],
+  "core_targets": [
+    "sqrt_normalized_area",
+    "normalized_perimeter",
+    "centroid_x",
+    "centroid_y"
+  ],
+  "seed_summaries": [
+    {
+      "seed": 2026,
+      "n_images": 1875,
+      "n_patients": 1064,
+      "median_all_target_spearman": 0.8797816263264756,
+      "median_core_target_spearman": 0.9651345313378221,
+      "targets": {
+        "sqrt_normalized_area": {
+          "spearman": 0.985003163478233,
+          "r2": 0.9726832016357708,
+          "standardized_mae": 0.1260666800182075
+        },
+        "normalized_perimeter": {
+          "spearman": 0.9770983490839749,
+          "r2": 0.9565636218483758,
+          "standardized_mae": 0.1569148292949022
+        },
+        "compactness": {
+          "spearman": 0.8265398647864504,
+          "r2": 0.6825736581177984,
+          "standardized_mae": 0.443364317153997
+        },
+        "eccentricity": {
+          "spearman": 0.873884107743035,
+          "r2": 0.6842627343322208,
+          "standardized_mae": 0.4072915428585063
+        },
+        "solidity": {
+          "spearman": 0.8041680228848901,
+          "r2": 0.675800799604271,
+          "standardized_mae": 0.42750067305076567
+        },
+        "bbox_aspect_ratio": {
+          "spearman": 0.8797816263264756,
+          "r2": 0.7482515487481888,
+          "standardized_mae": 0.381392570478294
+        },
+        "centroid_x": {
+          "spearman": 0.6756699387647825,
+          "r2": 0.44206579392533674,
+          "standardized_mae": 0.5680373179242979
+        },
+        "centroid_y": {
+          "spearman": 0.9531707135916695,
+          "r2": 0.8991523196867648,
+          "standardized_mae": 0.24001916608777868
+        },
+        "lesion_to_image_area_ratio": {
+          "spearman": 0.9777440026578496,
+          "r2": 0.9712306286902306,
+          "standardized_mae": 0.11691787395304593
+        }
+      }
+    },
+    {
+      "seed": 2027,
+      "n_images": 1875,
+      "n_patients": 1064,
+      "median_all_target_spearman": 0.8775021717972102,
+      "median_core_target_spearman": 0.9651357546768369,
+      "targets": {
+        "sqrt_normalized_area": {
+          "spearman": 0.9857219607102465,
+          "r2": 0.9729899620580414,
+          "standardized_mae": 0.12497079335211543
+        },
+        "normalized_perimeter": {
+          "spearman": 0.9778085902246656,
+          "r2": 0.9573471715910412,
+          "standardized_mae": 0.156117785828362
+        },
+        "compactness": {
+          "spearman": 0.8230468871388478,
+          "r2": 0.679892505025315,
+          "standardized_mae": 0.44135722431498065
+        },
+        "eccentricity": {
+          "spearman": 0.871792043290181,
+          "r2": 0.6761119576206644,
+          "standardized_mae": 0.406827612166645
+        },
+        "solidity": {
+          "spearman": 0.8077325112916273,
+          "r2": 0.6744415044256439,
+          "standardized_mae": 0.4257264086463174
+        },
+        "bbox_aspect_ratio": {
+          "spearman": 0.8775021717972102,
+          "r2": 0.7490701253840363,
+          "standardized_mae": 0.38122577858200074
+        },
+        "centroid_x": {
+          "spearman": 0.689604113012863,
+          "r2": 0.46618983515599033,
+          "standardized_mae": 0.5553645510584321
+        },
+        "centroid_y": {
+          "spearman": 0.952462919129008,
+          "r2": 0.898044375525734,
+          "standardized_mae": 0.2401981523617641
+        },
+        "lesion_to_image_area_ratio": {
+          "spearman": 0.9785933057687626,
+          "r2": 0.968680355472211,
+          "standardized_mae": 0.11825235402922213
+        }
+      }
+    },
+    {
+      "seed": 2028,
+      "n_images": 1875,
+      "n_patients": 1064,
+      "median_all_target_spearman": 0.8832193625640851,
+      "median_core_target_spearman": 0.9646778308488052,
+      "targets": {
+        "sqrt_normalized_area": {
+          "spearman": 0.9857405875031003,
+          "r2": 0.9733058020315968,
+          "standardized_mae": 0.12504848176680453
+        },
+        "normalized_perimeter": {
+          "spearman": 0.9773702143346387,
+          "r2": 0.9570343401395475,
+          "standardized_mae": 0.15619707359774626
+        },
+        "compactness": {
+          "spearman": 0.824699103123519,
+          "r2": 0.6825619358608142,
+          "standardized_mae": 0.4407438943172057
+        },
+        "eccentricity": {
+          "spearman": 0.8766363602023424,
+          "r2": 0.6929279939648314,
+          "standardized_mae": 0.39740897110150863
+        },
+        "solidity": {
+          "spearman": 0.8061573490736506,
+          "r2": 0.6758863383520177,
+          "standardized_mae": 0.4222064705051417
+        },
+        "bbox_aspect_ratio": {
+          "spearman": 0.8832193625640851,
+          "r2": 0.7583383800249726,
+          "standardized_mae": 0.3719676690865631
+        },
+        "centroid_x": {
+          "spearman": 0.6685924692743023,
+          "r2": 0.43467707615217366,
+          "standardized_mae": 0.5711432164842664
+        },
+        "centroid_y": {
+          "spearman": 0.9519854473629717,
+          "r2": 0.8973660706211936,
+          "standardized_mae": 0.24348433079291978
+        },
+        "lesion_to_image_area_ratio": {
+          "spearman": 0.9780922847266943,
+          "r2": 0.9701667901370882,
+          "standardized_mae": 0.11718250516168395
+        }
+      }
+    },
+    {
+      "seed": 2029,
+      "n_images": 1875,
+      "n_patients": 1064,
+      "median_all_target_spearman": 0.882915326188102,
+      "median_core_target_spearman": 0.964609291095976,
+      "targets": {
+        "sqrt_normalized_area": {
+          "spearman": 0.9858814316889406,
+          "r2": 0.9732851015936465,
+          "standardized_mae": 0.12409739621714864
+        },
+        "normalized_perimeter": {
+          "spearman": 0.9782225011548445,
+          "r2": 0.9578114887970646,
+          "standardized_mae": 0.15459395396276338
+        },
+        "compactness": {
+          "spearman": 0.8233777373234452,
+          "r2": 0.6826925356860263,
+          "standardized_mae": 0.4378273049790634
+        },
+        "eccentricity": {
+          "spearman": 0.8755810045670411,
+          "r2": 0.6874319746078194,
+          "standardized_mae": 0.3990843756886359
+        },
+        "solidity": {
+          "spearman": 0.8021295796374718,
+          "r2": 0.6680034703479929,
+          "standardized_mae": 0.4316019446287523
+        },
+        "bbox_aspect_ratio": {
+          "spearman": 0.882915326188102,
+          "r2": 0.7578972409489247,
+          "standardized_mae": 0.37459622030064504
+        },
+        "centroid_x": {
+          "spearman": 0.6687981322234686,
+          "r2": 0.43843732208730857,
+          "standardized_mae": 0.5741044581921921
+        },
+        "centroid_y": {
+          "spearman": 0.9509960810371074,
+          "r2": 0.8965112267115222,
+          "standardized_mae": 0.24118689112423042
+        },
+        "lesion_to_image_area_ratio": {
+          "spearman": 0.9786475823353122,
+          "r2": 0.9703723771609098,
+          "standardized_mae": 0.11646321192653332
+        }
+      }
+    },
+    {
+      "seed": 2030,
+      "n_images": 1875,
+      "n_patients": 1064,
+      "median_all_target_spearman": 0.876532764140875,
+      "median_core_target_spearman": 0.9653678470628135,
+      "targets": {
+        "sqrt_normalized_area": {
+          "spearman": 0.9857606524474745,
+          "r2": 0.9734489925246466,
+          "standardized_mae": 0.12423956773221578
+        },
+        "normalized_perimeter": {
+          "spearman": 0.9777895465499155,
+          "r2": 0.9568709092327872,
+          "standardized_mae": 0.1548062743052743
+        },
+        "compactness": {
+          "spearman": 0.8228218644542192,
+          "r2": 0.6811167215852778,
+          "standardized_mae": 0.4395123577760066
+        },
+        "eccentricity": {
+          "spearman": 0.876532764140875,
+          "r2": 0.6763203326218084,
+          "standardized_mae": 0.4031916042018806
+        },
+        "solidity": {
+          "spearman": 0.7994069554650894,
+          "r2": 0.668249831547052,
+          "standardized_mae": 0.4281380949404293
+        },
+        "bbox_aspect_ratio": {
+          "spearman": 0.8739178941842762,
+          "r2": 0.7389150133611074,
+          "standardized_mae": 0.3864818339728129
+        },
+        "centroid_x": {
+          "spearman": 0.669653883655205,
+          "r2": 0.4342873928785588,
+          "standardized_mae": 0.573485230714712
+        },
+        "centroid_y": {
+          "spearman": 0.9529461475757117,
+          "r2": 0.8984454428472181,
+          "standardized_mae": 0.24108705445389142
+        },
+        "lesion_to_image_area_ratio": {
+          "spearman": 0.9788772842602051,
+          "r2": 0.9706819427156146,
+          "standardized_mae": 0.11612620451233155
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "all_target_median_mean": 0.8799902502033495,
+    "all_target_median_min": 0.876532764140875,
+    "all_target_median_max": 0.8832193625640851,
+    "core_target_median_mean": 0.9649850510044506,
+    "core_target_median_min": 0.964609291095976,
+    "core_target_median_max": 0.9653678470628135
+  },
+  "claim_gate": "Recoverability medians remain stable across alternate split registries."
+}

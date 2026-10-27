@@ -1,0 +1,24 @@
+# Reproducibility lock - 2026-06-19
+
+Seeds: 2026, 2027, 2028, 2029, 2030
+
+ResNet-50 IMAGENET1K_V2
+Path: models/torch/hub/checkpoints/resnet50-11ad3fa6.pth
+SHA256: 11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca
+
+DINOv3 ViT-L/16 LVD-1689M
+Model ID: timm/vit_large_patch16_dinov3.lvd1689m
+Path: models/dinov3_vitl16_lvd1689m.safetensors
+SHA256: 45172f209c9583c40538afc26b60a07033e6fcc2e8c30228338e6b2e932e7941
+
+UltraSam ViT-B (official ultrasound checkpoint)
+Source: https://github.com/CAMMA-public/UltraSam
+Path: models/UltraSam.pth
+Bytes: 381156023
+SHA256: d7c223dd03f56b0b77cd246aa3edfae651e99f0ee2dde2e8c50eda7b21fa8a0c
+
+MedSAM2 latest Hiera-Tiny 512 (official medical checkpoint)
+Source: https://huggingface.co/wanglab/MedSAM2
+Path: models/MedSAM2_latest.pt
+Bytes: 156040129
+SHA256: c92743b99f00d078bf32a3afcc38aaa9faf1c1692dffe3eaa7a90938c1991060

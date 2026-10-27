@@ -1,0 +1,214 @@
+{
+  "source": "patient-level predictions aggregated with src.statistics; stratified patient bootstrap defaults; generated for BIBM accept-zone manuscript",
+  "settings": {
+    "DINOv3/BUS-BRA": {
+      "role": "primary_audit",
+      "conditions": {
+        "C1_full": {
+          "auroc": 0.8810362702693946,
+          "ci_lower": 0.8568653715313215,
+          "ci_upper": 0.901055992937098,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C2_lesion-only": {
+          "auroc": 0.9423830814339637,
+          "ci_lower": 0.9265187871571819,
+          "ci_upper": 0.9564123981467982,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C4_lesion-removed-inpaint": {
+          "auroc": 0.927346065996015,
+          "ci_lower": 0.9119646125933487,
+          "ci_upper": 0.9421077943010805,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C5_mask-only": {
+          "auroc": 0.9458780839448575,
+          "ci_lower": 0.9303317012522071,
+          "ci_upper": 0.9591434003985031,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C6_shape-only": {
+          "auroc": 0.9412207804830637,
+          "ci_lower": 0.9256713604185903,
+          "ci_upper": 0.9553305875492054,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        }
+      }
+    },
+    "ResNet-50/BUS-BRA": {
+      "role": "encoder_replication_partial",
+      "conditions": {
+        "C1_full": {
+          "auroc": 0.8431622685522671,
+          "ci_lower": 0.8182144101018937,
+          "ci_upper": 0.8667316664236768,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C2_lesion-only": {
+          "auroc": 0.9364460319774506,
+          "ci_lower": 0.9191849516450404,
+          "ci_upper": 0.9514318170773193,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C4_lesion-removed-inpaint": {
+          "auroc": 0.9144109118595194,
+          "ci_lower": 0.8958745403443975,
+          "ci_upper": 0.9304044969302296,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        }
+      }
+    },
+    "MedSAM2/BUS-BRA": {
+      "role": "encoder_replication",
+      "conditions": {
+        "C1_full": {
+          "auroc": 0.8494111548492653,
+          "ci_lower": 0.824359519528276,
+          "ci_upper": 0.8708792988935867,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C2_lesion-only": {
+          "auroc": 0.9386207902026533,
+          "ci_lower": 0.9221438580291912,
+          "ci_upper": 0.9535326659214981,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C4_lesion-removed-inpaint": {
+          "auroc": 0.8871596118643793,
+          "ci_lower": 0.8666600856943836,
+          "ci_upper": 0.9069945610795224,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C5_mask-only": {
+          "auroc": 0.9370170578801574,
+          "ci_lower": 0.9201232970468646,
+          "ci_upper": 0.9526415010286565,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C6_shape-only": {
+          "auroc": 0.9281438823281657,
+          "ci_lower": 0.9092779559702581,
+          "ci_upper": 0.9448491236169834,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        }
+      }
+    },
+    "UltraSam/BUS-BRA": {
+      "role": "sensitivity_known_dataset_level_training_data_exposure",
+      "conditions": {
+        "C1_full": {
+          "auroc": 0.8582924300594515,
+          "ci_lower": 0.8335144619397061,
+          "ci_upper": 0.8802471610698029,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C2_lesion-only": {
+          "auroc": 0.91862273412062,
+          "ci_lower": 0.8982716341870373,
+          "ci_upper": 0.9368120352821111,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C4_lesion-removed-inpaint": {
+          "auroc": 0.8414127423822715,
+          "ci_lower": 0.8143864103934814,
+          "ci_upper": 0.8649770779673098,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C5_mask-only": {
+          "auroc": 0.9324407510003079,
+          "ci_lower": 0.915058074549254,
+          "ci_upper": 0.9474954844405566,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        },
+        "C6_shape-only": {
+          "auroc": 0.9078056406019666,
+          "ci_lower": 0.8884179950106106,
+          "ci_upper": 0.9263713733780434,
+          "n_patients": 1064,
+          "n_benign_patients": 722,
+          "n_malignant_patients": 342
+        }
+      }
+    },
+    "DINOv3/BUS-UCLM": {
+      "role": "small_independent_dataset_sensitivity",
+      "conditions": {
+        "C1_full": {
+          "auroc": 0.6797385620915033,
+          "ci_lower": 0.4803921568627451,
+          "ci_upper": 0.8660130718954249,
+          "n_patients": 35,
+          "n_benign_patients": 18,
+          "n_malignant_patients": 17
+        },
+        "C2_lesion-only": {
+          "auroc": 0.9542483660130718,
+          "ci_lower": 0.8627450980392157,
+          "ci_upper": 1.0,
+          "n_patients": 35,
+          "n_benign_patients": 18,
+          "n_malignant_patients": 17
+        },
+        "C4_lesion-removed-inpaint": {
+          "auroc": 0.8856209150326797,
+          "ci_lower": 0.7549019607843137,
+          "ci_upper": 0.9837418300653594,
+          "n_patients": 35,
+          "n_benign_patients": 18,
+          "n_malignant_patients": 17
+        },
+        "C5_mask-only": {
+          "auroc": 0.9705882352941175,
+          "ci_lower": 0.9019607843137255,
+          "ci_upper": 1.0,
+          "n_patients": 35,
+          "n_benign_patients": 18,
+          "n_malignant_patients": 17
+        },
+        "C6_shape-only": {
+          "auroc": 0.9281045751633987,
+          "ci_lower": 0.829983660130719,
+          "ci_upper": 0.9967320261437909,
+          "n_patients": 35,
+          "n_benign_patients": 18,
+          "n_malignant_patients": 17
+        }
+      }
+    }
+  }
+}
